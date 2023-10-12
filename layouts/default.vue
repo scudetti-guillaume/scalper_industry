@@ -24,12 +24,15 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer> -->
-    <v-app-bar
-      :clipped-left="clipped"
-      fixed
-      app
-      class="main-bar"
-    >
+    <v-app-bar :clipped-left="clipped" fixed app class="main-bar">
+      <button @click="toggleDarkMode" class="toggle-button">
+        <span v-if="isDarkMode">
+          <i class="mdi mdi-weather-night mdi-24px"></i>
+        </span>
+        <span v-else>
+          <i class="mdi mdi-weather-sunny mdi-24px"></i>
+        </span>
+      </button>
       <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer" /> -->
       <!-- <v-btn
         icon
@@ -47,16 +50,16 @@
         icon
         @click.stop="fixed = !fixed"
       > -->
-        <!-- <v-icon>mdi-minus</v-icon> -->
-      <!-- </v-btn> --> 
-         <v-spacer />
+      <!-- <v-icon>mdi-minus</v-icon> -->
+      <!-- </v-btn> -->
+      <v-spacer />
       <v-toolbar-title>{{ title }}</v-toolbar-title>
       <v-spacer />
-      <v-btn class="btn-tournoi">  
-       Tournoi
-         <!-- <v-icon>mdi-menu</v-icon>  -->
+      <v-btn class="btn-tournoi">
+        Tournoi
+        <!-- <v-icon>mdi-menu</v-icon>  -->
       </v-btn>
-         <v-spacer />
+      <v-spacer />
     </v-app-bar>
     <v-main>
       <v-container>
@@ -69,7 +72,7 @@
       temporary
       fixed
     > -->
-      <!-- <v-list>
+    <!-- <v-list>
         <v-list-item @click.native="right = !right">
           <v-list-item-action>
             <v-icon light>
@@ -80,10 +83,7 @@
         </v-list-item>
       </v-list> -->
     <!-- </v-navigation-drawer> -->
-    <v-footer
-      :absolute="!fixed"
-      app
-    >
+    <v-footer :absolute="!fixed" app>
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
@@ -92,8 +92,15 @@
 <script>
 export default {
   name: 'DefaultLayout',
-  data () {
+  methods: {
+    toggleDarkMode() {
+      this.isDarkMode = !this.isDarkMode;
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark; // Changer le thème
+    },
+  },
+  data() {
     return {
+      isDarkMode: false,
       clipped: false,
       drawer: false,
       fixed: false,
@@ -114,23 +121,34 @@ export default {
       rightDrawer: false,
       title: 'Sclaper'
     }
+
+
   }
 }
 </script>
 
 
 <style lang="scss">
-
-.main-bar{
-// color: blue !important;
-background: $main!important;
-
-}
-
-.btn-tournoi{
-color: blue !important;
-background: bisque !important;
+.main-bar {
+  // color: blue !important;
+  background: $main ;
 
 }
 
+.toggle-button {
+  border: solid 2px grey;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+
+  &:hover {
+    border: solid 2px rgb(255, 255, 255);
+  }
+}
+
+.btn-tournoi {
+  color: blue !important;
+  background: bisque !important;
+
+}
 </style>
