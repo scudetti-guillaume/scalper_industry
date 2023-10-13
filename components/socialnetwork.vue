@@ -1,15 +1,22 @@
 <template>
-  <div class="social-main">
-    <!-- Utilisez v-for pour générer des cartes avec des liens -->
-    <a v-for="(carte, index) in cartes" :key="index" :href="carte.lien" target="_blank" class="card-link">
-      <v-card class="card-social" :style="{ backgroundImage: `url(${carte.backgroundImage})` }">
-        <v-card-title>{{ carte.titre }}</v-card-title>
-        <v-card-text>{{ carte.description }}</v-card-text> 
-         <v-card-actions>
-          {{ carte.texteDuLien }}
-        </v-card-actions> 
-      </v-card>
-    </a>
+  <div>
+    <div class="social-main">
+      <a v-for="(carte, index) in cartes" :key="index" :href="carte.lien" target="_blank" class="card-link">
+        <v-card class="card-social" :style="{ backgroundImage: `url(${carte.backgroundImage})` }">
+          <div class="card-content">
+            <v-card-title>{{ carte.titre }}</v-card-title>
+            <v-card-text>{{ carte.description }}</v-card-text>
+            <v-card-actions>{{ carte.texteDuLien }}</v-card-actions>
+          </div>
+        </v-card>
+      </a>
+    </div>
+
+    <div class="centered-button">
+      <router-link to="/inspire">
+        <v-btn color="primary">Voir la page</v-btn>
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -24,30 +31,29 @@ export default {
           description: '',
           texteDuLien: '',
           lien: 'https://twitter.com/ScalperC',
-         backgroundImage: 'x.png', // Couleur de fond pour la carte 1
+          backgroundImage: 'x.png',
         },
         {
-          titre: '',
-          description: '',
-          texteDuLien: '',
+          titre: 'Titre 2',
+          description: 'Description 2',
+          texteDuLien: 'Lien 2',
           lien: 'https://www.bitget.com/expressly?channelCode=hete&vipCode=9k3f&languageType=0',
-          backgroundImage: 'bitget.png', // Dégradé linéaire pour la carte 2
+          backgroundImage: 'bitget.png',
         },
-         {
-          titre: '',
-          description: '',
-          texteDuLien: '',
-          lien: 'https://app.tealstreet.io/chirurgical',
-          backgroundImage: 'tealstreet.png', // Dégradé linéaire pour la carte 2
-        },
-           {
-          titre: '',
-          description: '',
-          texteDuLien: '',
+        // {
+        //   titre: 'Titre 3',
+        //   description: 'Description 3',
+        //   texteDuLien: 'Lien 3',
+        //   lien: 'https://app.tealstreet.io/chirurgical',
+        //   backgroundImage: 'tealstreet.png',
+        // },
+        {
+          titre: 'Titre 4',
+          description: 'Description 4',
+          texteDuLien: 'Lien 4',
           lien: '',
-          backgroundImage: 'mexc.png', // Dégradé linéaire pour la carte 2
+          backgroundImage: 'mexc.png',
         },
-    
       ],
     };
   },
@@ -64,7 +70,7 @@ export default {
   height: 100%;
 }
 
-.card-social{
+.card-social {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,11 +78,12 @@ export default {
   text-align: center;
   width: 100%;
   height: 100%;
-  // background-color: rgb(27, 33, 149) !important;
-  border: 3px solid rgb(255, 255, 255) !important;
+  // border: 3px solid rgb(255, 255, 255) !important;
   border-radius: 10px !important;
   background-size: contain !important;
   background-position: center !important;
+  position: relative;
+  transition: transform 0.2s;
 }
 
 .card-link {
@@ -87,7 +94,34 @@ export default {
   text-align: center;
   width: 200px;
   height: 200px;
-  border: 3px solid rgb(255, 255, 255) !important;
+  border: 6px solid $main !important;
   border-radius: 10px !important;
+}
+
+/* Style de la description (masquée au départ) */
+.card-content {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  transform: translateY(100%);
+}
+.centered-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; /* Ajustez la marge supérieure selon vos besoins */
+}
+/* Effet de survol pour afficher la description */
+.card-social:hover .card-content {
+  display: block;
+  transform: translateY(0);
 }
 </style>

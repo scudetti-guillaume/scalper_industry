@@ -25,14 +25,14 @@
       </v-list>
     </v-navigation-drawer> -->
     <v-app-bar :clipped-left="clipped" fixed app class="main-bar">
-      <button @click="toggleDarkMode" class="toggle-button">
+      <v-btn @click="toggleDarkMode" class="toggle-button">
         <span v-if="isDarkMode">
           <i class="mdi mdi-weather-night mdi-24px"></i>
         </span>
         <span v-else>
           <i class="mdi mdi-weather-sunny mdi-24px"></i>
         </span>
-      </button>
+      </v-btn>
       <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer" /> -->
       <!-- <v-btn
         icon
@@ -53,13 +53,15 @@
       <!-- <v-icon>mdi-minus</v-icon> -->
       <!-- </v-btn> -->
       <v-spacer />
-      <v-toolbar-title>{{ title }}</v-toolbar-title>
+      <router-link to="/" class="main-link">
+          <v-toolbar-title>{{ title }}</v-toolbar-title>
+        </router-link>
       <v-spacer />
       <v-btn class="btn-tournoi">
         Tournoi
         <!-- <v-icon>mdi-menu</v-icon>  -->
       </v-btn>
-      <v-spacer />
+      <!-- <v-spacer /> -->
     </v-app-bar>
     <v-main>
       <v-container>
@@ -83,7 +85,14 @@
         </v-list-item>
       </v-list> -->
     <!-- </v-navigation-drawer> -->
-    <v-footer :absolute="!fixed" app>
+    <v-footer :absolute="!fixed" app class="footer">
+      <a href="https://twitter.com/ScalperC" target="_blank" class="social-link">
+        <v-icon>mdi-twitter</v-icon> Contact
+      </a>
+      <a href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="social-link">
+        <v-icon>mdi-twitch</v-icon> Twitch
+      </a>
+      <v-spacer />
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
@@ -119,7 +128,8 @@ export default {
       miniVariant: true,
       right: true,
       rightDrawer: false,
-      title: 'Sclaper'
+      title: 'Scalper',
+      to: '/'
     }
 
 
@@ -130,9 +140,15 @@ export default {
 
 <style lang="scss">
 .main-bar {
-  // color: blue !important;
-  background: $main ;
+  background: $main !important;
+}
 
+.main-link{
+  text-decoration: none; /* Supprime le soulignement */
+  color: rgb(0, 0, 0) !important /* Change la couleur du lien (remplacez 'red' par la couleur de votre choix) */
+}
+.footer{
+ background: $main !important;
 }
 
 .toggle-button {
@@ -149,6 +165,11 @@ export default {
 .btn-tournoi {
   color: blue !important;
   background: bisque !important;
+}
 
+.social-link {
+  text-decoration: none; /* Supprime le soulignement */
+  color: white !important;/* Définit la couleur du texte sur blanc */
+  margin: 0 10px; /* Ajoute une marge horizontale entre les liens */
 }
 </style>

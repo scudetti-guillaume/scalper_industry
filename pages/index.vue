@@ -29,7 +29,7 @@ export default {
   width: 100%;
 }
 
-.v-main__wrap {
-  background: $background-maybar;
-}
+// .v-main__wrap {
+//   background: $background;
+// }
 </style>
