@@ -25,14 +25,7 @@
       </v-list>
     </v-navigation-drawer> -->
     <v-app-bar :clipped-left="clipped" fixed app class="main-bar">
-      <v-btn @click="toggleDarkMode" class="toggle-button">
-        <span v-if="isDarkMode">
-          <i class="mdi mdi-weather-night mdi-24px"></i>
-        </span>
-        <span v-else>
-          <i class="mdi mdi-weather-sunny mdi-24px"></i>
-        </span>
-      </v-btn>
+
       <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer" /> -->
       <!-- <v-btn
         icon
@@ -52,16 +45,46 @@
       > -->
       <!-- <v-icon>mdi-minus</v-icon> -->
       <!-- </v-btn> -->
-      <v-spacer />
-      <router-link to="/" class="main-link">
-          <v-toolbar-title>{{ title }}</v-toolbar-title>
-        </router-link>
-      <v-spacer />
-      <v-btn class="btn-tournoi">
-        Tournoi
-        <!-- <v-icon>mdi-menu</v-icon>  -->
-      </v-btn>
       <!-- <v-spacer /> -->
+      <router-link to="/" class="main-link">
+        <v-toolbar-title>{{ title }}</v-toolbar-title>
+      </router-link>
+      <v-spacer />
+      <!-- <v-btn class="btn-tournoi">
+        Tournoi
+        <v-icon>mdi-menu</v-icon> 
+      </v-btn> -->
+      <!-- <v-spacer />
+          <v-spacer />
+          <v-spacer />
+          <v-spacer />
+          <v-spacer />
+          <v-spacer />
+          <v-spacer />
+          <v-spacer />
+          <v-spacer /> -->
+      <div class="header-link">
+        <router-link to="/" class="main-link">
+          <v-toolbar-title>{{ acceuil }}</v-toolbar-title>
+        </router-link>
+        <router-link to="/" class="main-link">
+          <v-toolbar-title>{{ tournoi }}</v-toolbar-title>
+        </router-link>
+        <!-- <v-spacer /> -->
+        <!-- <v-spacer /> -->
+        <router-link to="/inspire" class="main-link">
+          <v-toolbar-title>{{ affiliation }}</v-toolbar-title>
+        </router-link>
+      </div>
+      <!-- <v-spacer /> -->
+      <v-btn @click="toggleDarkMode" class="toggle-button">
+        <span v-if="isDarkMode">
+          <i class="mdi mdi-weather-night mdi-24px"></i>
+        </span>
+        <span v-else>
+          <i class="mdi mdi-weather-sunny mdi-24px"></i>
+        </span>
+      </v-btn>
     </v-app-bar>
     <v-main>
       <v-container>
@@ -86,11 +109,12 @@
       </v-list> -->
     <!-- </v-navigation-drawer> -->
     <v-footer :absolute="!fixed" app class="footer">
-      <a href="https://twitter.com/ScalperC" target="_blank" class="social-link">
-        <v-icon>mdi-twitter</v-icon> Contact
+      <a href="https://twitter.com/ScalperC" target="_blank" class="social-link-x ">
+        <img src="x.svg" width="20" height="20" alt="Twitter Logo" class="social-link-icone" />Contact
+        <!-- <v-icon class="social-link-icone">mdi-twitter</v-icon> Contact -->
       </a>
       <a href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="social-link">
-        <v-icon>mdi-twitch</v-icon> Twitch
+        <v-icon >mdi-twitch</v-icon> Twitch
       </a>
       <v-spacer />
       <span>&copy; {{ new Date().getFullYear() }}</span>
@@ -129,6 +153,9 @@ export default {
       right: true,
       rightDrawer: false,
       title: 'Scalper',
+      tournoi: 'tournoi',
+      acceuil: 'acceuil',
+      affiliation: 'affiliation',
       to: '/'
     }
 
@@ -143,12 +170,23 @@ export default {
   background: $main !important;
 }
 
-.main-link{
-  text-decoration: none; /* Supprime le soulignement */
-  color: rgb(0, 0, 0) !important /* Change la couleur du lien (remplacez 'red' par la couleur de votre choix) */
+.main-link {
+  text-decoration: none;
+  /* Supprime le soulignement */
+  color: rgb(0, 0, 0) !important
+    /* Change la couleur du lien (remplacez 'red' par la couleur de votre choix) */
 }
-.footer{
- background: $main !important;
+
+.footer {
+  background: $main !important;
+}
+
+.header-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 40%;
 }
 
 .toggle-button {
@@ -167,9 +205,23 @@ export default {
   background: bisque !important;
 }
 
-.social-link {
-  text-decoration: none; /* Supprime le soulignement */
-  color: white !important;/* Définit la couleur du texte sur blanc */
-  margin: 0 10px; /* Ajoute une marge horizontale entre les liens */
+.social-link-x {
+display: flex;
+align-items: center;
+justify-content: center;
+  text-decoration: none;
+  color: white !important;
+  margin: 0 10px;
+}
+.social-link{
+  text-decoration: none;
+  color: white !important;
+  margin: 0 10px;
+}
+.social-link-icone {
+  color: white !important;
+  text-align: center;
+  margin-right: 10px;
+ 
 }
 </style>

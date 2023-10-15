@@ -5,7 +5,8 @@ export default {
   ssr: false,
   target: 'static',
   router: {
-    base: '/scalper_industryV2/' // Remplacez "/handiecoute/" par le chemin de base que vous souhaitez utiliser
+    base: '/' ,
+    // base: '/scalper_industryV2/' 
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
