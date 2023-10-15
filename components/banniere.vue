@@ -1,8 +1,7 @@
 <template>
     <div class="card-banniere">
         <v-card-title class="headline-1">
-            <div><span class="title-pmu">PMU DES TRADERS </span><span class="span-pmu"> Prend une bière, rejoins la guerre
-                    !</span></div>
+            <div><span class="title-pmu">PMU DES TRADERS </span><span class="span-pmu"> Prend une bière, rejoins la guerre !</span></div>
         </v-card-title>
     </div>
 </template>
@@ -32,6 +31,25 @@ export default {
        border-bottom: 3px solid #39a43d !important;
        font-size: 1.8rem;
 
+     @media (max-width: 1264px) {
+    /* Appliquez ces styles pour les écrans de largeur supérieure ou égale à 768px */
+    font-size: 1.6rem;
+  }
+   
+   
+     @media (max-width: 1044px) {
+    /* Appliquez ces styles pour les écrans de largeur supérieure ou égale à 768px */
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 1024px) {
+    /* Appliquez ces styles pour les écrans de largeur supérieure ou égale à 1024px */
+    font-size: 1.6rem;
+  }
+  @media (max-width: 860px) {
+    /* Appliquez ces styles pour les écrans de largeur supérieure ou égale à 1024px */
+    font-size: 1.2rem;
+  }
    }
 
    .headline-1 {

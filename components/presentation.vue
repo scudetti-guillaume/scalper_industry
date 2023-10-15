@@ -3,27 +3,25 @@
     <v-card-title class="headline">
       scalper
     </v-card-title>
-    <v-card-text class="cp-text">
-      streamer, trader à plein temps et expert en patern BEUTEU
-         <a v-if="!isLive" href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="social-link">
-        <v-icon class="twitch-icon">mdi-twitch</v-icon> Twitch
+      <a v-if="!isLive" href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="unlive-link">
+           <v-icon class="twitch-icon">mdi-twitch</v-icon><span> Twitch</span>
+          </a>
+           <a v-if="isLive" href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="live-link">
+        <div class="live-content">
+          <v-icon class="live-circle mdi mdi-circle"></v-icon>
+          <span class="live-text">En live, rejoins-nous!</span>
+        </div>
       </a>
+    <v-card-text class="cp-text">
+      <span>streamer, trader à plein temps</span><span> et expert en patern BEUTEU</span>
     </v-card-text>
-    <a v-if="isLive" href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="live-link">
-      <div class="live-content">
-        <v-icon class="live-circle mdi mdi-circle"></v-icon>
-        <span class="live-text">En live, rejoins-nous!</span>
-      </div>
-      <!-- <v-icon class="live-icon mdi mdi-twitch"></v-icon> -->
-    </a>
-    <!-- <a v-else href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="social-link">
-      <v-icon class="twitch-icon">mdi-twitch</v-icon> Twitch
-    </a> -->
+    
+   
   </div>
 </template>
 
 <script>
-import config from '@/test.js';
+import config from '@/test2.js';
 export default {
   name: 'presentation',
   data() {
@@ -95,7 +93,13 @@ export default {
   background-color: #1e1e1e !important;
   color: beige !important;
   width: 80% !important;
-}
+  @media (max-width: 550px) {
+    /* Appliquez ces styles pour les écrans de largeur supérieure ou égale à 768px */
+    width: 100% !important;
+  }
+    
+  }
+
 
 .headline-1 {
   width: 100%;
@@ -141,6 +145,18 @@ export default {
   border-radius: 25px;
   transition: background-color 0.2s;
 }
+
+.unlive-link{
+  display: inline-block;
+  text-decoration: none;
+  background-color: $main;
+  color: #fff !important;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: background-color 0.2s;
+}
+
+
 
 .live-link:hover {
   background-color: #41970b;

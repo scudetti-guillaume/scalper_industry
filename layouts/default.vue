@@ -54,7 +54,7 @@
         Tournoi
         <v-icon>mdi-menu</v-icon> 
       </v-btn> -->
-      <!-- <v-spacer />
+      <v-spacer />
           <v-spacer />
           <v-spacer />
           <v-spacer />
@@ -62,7 +62,7 @@
           <v-spacer />
           <v-spacer />
           <v-spacer />
-          <v-spacer /> -->
+          <v-spacer />
       <div class="header-link">
         <router-link to="/" class="main-link">
           <v-toolbar-title>{{ acceuil }}</v-toolbar-title>
@@ -187,6 +187,15 @@ export default {
   justify-content: space-around;
   align-items: center;
   width: 40%;
+  
+  @media (max-width: 656px) {
+    width: 60%; /* Par exemple, 50% de largeur pour les écrans de 768px et plus */
+  }
+
+  @media (max-width: 440px) {
+    width: 80%; 
+    font-size: 1rem !important;
+  }
 }
 
 .toggle-button {

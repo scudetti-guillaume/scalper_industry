@@ -36,4 +36,5 @@ export default {
     align-items: center;
     margin-top: 2%;
 }
+
 </style>
