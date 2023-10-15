@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="social-main">
-        <div>
+        <!-- <div>
       <a v-for="(carte, index) in carteX" :key="index" :href="carte.lien" target="_blank" class="card-link-x">
         <v-card class="card-social-x" :style="{ backgroundImage: `url(${carte.backgroundImage})` }">
           <div class="card-content-x">
@@ -11,7 +11,7 @@
           </div>
         </v-card>
       </a>
-      </div>
+      </div> -->
       <a v-for="(carte, index) in cartes" :key="index" :href="carte.lien" target="_blank" class="card-link">
         <v-card class="card-social" :style="{ backgroundImage: `url(${carte.backgroundImage})` }">
           <div class="card-content">
@@ -45,13 +45,13 @@ export default {
           backgroundImage: 'x.png',
         },],
       cartes: [
-        // {
-        //   titre: '',
-        //   description: '',
-        //   texteDuLien: '',
-        //   lien: 'https://twitter.com/ScalperC',
-        //   backgroundImage: 'x.png',
-        // },
+        {
+          titre: '',
+          description: '',
+          texteDuLien: '',
+          lien: 'https://twitter.com/ScalperC',
+          backgroundImage: 'x.png',
+        },
         {
           titre: 'Titre 2',
           description: 'Description 2',

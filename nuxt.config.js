@@ -5,8 +5,8 @@ export default {
   ssr: false,
   target: 'static',
   router: {
-    base: '/' ,
-    // base: '/scalper_industryV2/' 
+    // base: '/' ,
+    base: '/scalper_industryV2/' 
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
