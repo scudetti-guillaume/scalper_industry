@@ -4,7 +4,7 @@
         <v-card-title class="headline-1">
           <div>
             <span class="title-pmu">PMU DES TRADERS</span>
-            <span class="span-pmu">Prend une bière, rejoins la guerre !</span>
+            <span class="span-pmu">Met toi bien, Prend un lien !</span>
           </div>
         </v-card-title>
       </div>
@@ -12,7 +12,7 @@
             <v-card-title class="headline-1">
               <div>
                 <span class="title-pmu">PMU DES TRADERS</span>
-                <span class="span-green-pmu">Prend une bière, rejoins la guerre !</span>
+                <span class="span-green-pmu">Met toi bien, Prend un lien !</span>
               </div>
             </v-card-title>
           </div>
@@ -21,7 +21,7 @@
       
 <script >
 export default {
-    name: 'presentation',
+    name: 'banniere-affiliation',
     computed: {
         isDarkMode() {
             console.log(this.$store.state.isDarkMode);

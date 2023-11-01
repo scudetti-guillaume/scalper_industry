@@ -8,21 +8,101 @@
 <script>
 export default {
     name: 'Live',
- 
-    mounted() {
-        const script = document.createElement('script');
-        script.setAttribute('src', 'https://embed.twitch.tv/embed/v1.js');
-        script.addEventListener('load', () => {
-        console.log("Le lecteur est prêt à être initialisé !");
-            new window.Twitch.Embed('twitch-embed', {
-                layout: 'video',
-                width: '100%',
-                height: 480,
-                channel: 'Scalper_Chirurgical',
-            });
-        });
-        document.body.appendChild(script);
+    data() {
+        return {
+            isOffline: true,
+        };
+    },
+    methods: {
 
+        //     loadTwitchPlayer() {
+        //         const script = document.createElement('script');
+        //         script.setAttribute('src', 'https://embed.twitch.tv/embed/v1.js');
+        //         script.addEventListener('load', () => {
+        //             new window.Twitch.Embed('twitch-embed', {
+        //                 layout: 'video',
+        //                 width: '100%',
+        //                 height: 480,
+        //                 channel: 'Scalper_Chirurgical',
+        //             });
+        //             this.checkOfflineAfterDelay();
+        //         });
+        //         document.body.appendChild(script);     
+        //     },
+        //  checkOfflineAfterDelay() {
+        //         setTimeout(() => {
+        //        const offlineEmbeds = document.querySelectorAll('.offline-embeds');
+        //             if (offlineEmbeds) {
+        //                 this.isOffline = true;
+        //                 console.log('isofflinefromstart');
+        //                 this.$store.commit('setIsOffline', this.isOffline);
+        //             }else{
+        //             this.isOffline = false;
+        //             this.$store.commit('setIsOffline', this.isOffline);
+        //             }
+        //         }, 150);
+        //     },
+
+
+
+
+
+        async loadTwitchPlayer() {
+            try {
+                await new Promise((resolve, reject) => {
+                    const script = document.createElement('script');
+                    script.setAttribute('src', 'https://embed.twitch.tv/embed/v1.js');
+                    script.addEventListener('load', () => {
+                        resolve();
+                    });
+                    script.addEventListener('error', (error) => {
+                        reject(error);
+                    });
+                    document.body.appendChild(script);
+                });
+                new window.Twitch.Embed('twitch-embed', {
+                    layout: 'video',
+                    width: '100%',
+                    height: 480,
+                    channel: 'Scalper_Chirurgical',
+                }); this.checkOfflineAfterDelay();
+            } catch (error_1) {
+                console.error('Erreur de chargement du script Twitch Embed:', error_1);
+            }
+        },
+        checkOfflineAfterDelay() {
+            setTimeout(() => {
+                const offlineEmbeds = document.querySelectorAll('.offline-embeds');
+                if (offlineEmbeds) {
+                    this.isOffline = true;
+                    console.log('Le canal est hors ligne.');
+                    this.$store.commit('setIsOffline', this.isOffline);
+                } else {
+                    this.isOffline = false;
+                    console.log('Le canal est en ligne.');
+                    this.$store.commit('setIsOffline', this.isOffline);
+                }
+            }, 150);
+        }
+
+
+
+
+
+    },
+    mounted() {
+        this.loadTwitchPlayer();
+        // const script = document.createElement('script');
+        // script.setAttribute('src', 'https://embed.twitch.tv/embed/v1.js');
+        // script.addEventListener('load', () => {
+        //     new window.Twitch.Embed('twitch-embed', {
+        //         layout: 'video',
+        //         width: '100%',
+        //         height: 480,
+        //         channel: 'Scalper_Chirurgical',
+        //     });
+        // });
+        // document.body.appendChild(script);
     }
 }
 
@@ -36,5 +116,4 @@ export default {
     align-items: center;
     margin-top: 2%;
 }
-
 </style>

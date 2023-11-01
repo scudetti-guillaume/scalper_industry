@@ -2,11 +2,11 @@
   <div>
     <div class="social-main">
       <a v-for="(carte, index) in cartes" :key="index" :href="carte.lien" target="_blank" class="card-link">
-        <v-card class="card-social" :style="{ backgroundImage: `url(${carte.backgroundImage})` }">
+        <v-card class="card-social" :style="{ backgroundImage: `url(${carte.backgroundImage})` }" alt="logo de partenaire">
           <div class="card-content">
-            <v-card-title>{{ carte.titre }}</v-card-title>
-            <v-card-text>{{ carte.description }}</v-card-text>
-            <v-card-actions>{{ carte.texteDuLien }}</v-card-actions>
+            <v-card-actions class="cc-detail-title">{{ carte.titre }}</v-card-actions>
+            <v-card-text class="cc-detail-title-2">{{ carte.description }}</v-card-text>
+            <v-card-actions class="cc-detail-title-3">{{ carte.texteDuLien }}</v-card-actions>
           </div>
         </v-card>
       </a>
@@ -29,16 +29,16 @@ export default {
           backgroundImage: 'x.png',
         },
         {
-          titre: 'Titre 2',
-          description: 'Description 2',
-          texteDuLien: 'Lien 2',
+          titre: '10$ offert + 10% de cashback',
+          description: 'Fond de recouvrement 300 millions en cas de hack de votre compte.',
+          texteDuLien: 'Preuve de réserve ratio x2.5',
           lien: 'https://www.bitget.com/expressly?channelCode=hete&vipCode=9k3f&languageType=0',
           backgroundImage: 'bitget.png',
         },
         {
-          titre: 'Titre 4',
-          description: 'Description 4',
-          texteDuLien: 'Lien 4',
+          titre: '0 %  Frais de maker et de taker en spot',
+          description: '',
+          texteDuLien: '0 % Frais de maker en future, frais de taker en future  0,01 %',
           lien: '',
           backgroundImage: 'mexc.png',
         },
@@ -106,4 +106,21 @@ export default {
   display: block;
   transform: translateY(0);
 }
+
+.cc-detail-title{
+padding: 0;
+}
+
+.cc-detail-title-2{
+padding: 0;
+padding-top: 6%;
+
+}
+
+.cc-detail-title-3{
+padding: 0;
+padding-top: 6%;
+
+}
+
 </style>

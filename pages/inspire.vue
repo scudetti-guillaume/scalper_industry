@@ -1,41 +1,27 @@
 <template>
-  <!-- <div> -->
-    <div class="social-main-affi">
-      <!-- <div>
-      <a v-for="(carte, index) in carteX" :key="index" :href="carte.lien" target="_blank" class="card-link-x">
-        <v-card class="card-social-x" :style="{ backgroundImage: `url(${carte.backgroundImage})` }">
-          <div class="card-content-x">
-            <v-card-title>{{ carte.titre }}</v-card-title>
-            <v-card-text>{{ carte.description }}</v-card-text>
-            <v-card-actions>{{ carte.texteDuLien }}</v-card-actions>
-          </div>
-        </v-card>
-      </a>
-      </div> -->
-     <div class="card-link-affi-main">
+  <div class="social-main-affi">
+  <div class="banniere-affi"><banniereaffi></banniereaffi></div>
+    <div class="card-link-affi-main">
       <a v-for="(carte, index) in cartes" :key="index" :href="carte.lien" target="_blank" class="card-link-affi">
         <v-card class="card-social-affi" :style="{ backgroundImage: `url(${carte.backgroundImage})` }">
           <div class="card-content-affi">
-            <v-card-title>{{ carte.titre }}</v-card-title>
-            <v-card-text>{{ carte.description }}</v-card-text>
-            <v-card-actions>{{ carte.texteDuLien }}</v-card-actions>
+              <v-card-actions class="cc-detail-title">{{ carte.titre }}</v-card-actions>
+              <v-card-text class="cc-detail-title-2">{{ carte.description }}</v-card-text>
+              <v-card-text class="cc-detail-title-3">{{ carte.texteDuLien }}</v-card-text>
           </div>
         </v-card>
       </a>
     </div>
     </div>
-
-     <!-- <div class="centered-button">
-      <router-link to="/">
-        <v-btn color="primary">retour au menu</v-btn>
-      </router-link>
-    </div>  -->
-  <!-- </div>  -->
 </template>
 
 <script>
+import banniereaffi from '../components/banniere-affi.vue';
 export default {
   name: 'socialnetwork',
+     components: {
+    banniereaffi,
+  },
   data() {
     return {
       carteX: [
@@ -47,42 +33,40 @@ export default {
           backgroundImage: 'x.png',
         },],
       cartes: [
-        {
-          titre: 'Titre 2',
-          description: 'Description 2',
-          texteDuLien: 'Lien 2',
+          {
+          titre: '10$ offert + 10% de cashback',
+          description: 'Fond de recouvrement 300 millions en cas de hack de votre compte.',
+          texteDuLien: 'Preuve de réserve ratio x2.5',
           lien: 'https://www.bitget.com/expressly?channelCode=hete&vipCode=9k3f&languageType=0',
           backgroundImage: 'bitget.png',
         },
         {
-          titre: 'Titre 4',
-          description: 'Description 4',
-          texteDuLien: 'Lien 4',
+          titre: '0 %  Frais de maker et de taker en spot',
+          description: '',
+          texteDuLien: '0 % Frais de maker en future, frais de taker en future  0,01 %',
           lien: '',
           backgroundImage: 'mexc.png',
         },
         {
-          titre: 'Titre 3',
-          description: 'Description 3',
-          texteDuLien: 'Lien 3',
+          titre: 'Terminal de trading gratuit',
+          description: '- raccourcis - scale ',
+          texteDuLien: '- plusieurs API ',
           lien: 'https://app.tealstreet.io/chirurgical',
           backgroundImage: 'TS.png',
         }, {
-          titre: 'Titre 5',
-          description: 'Description 3',
-          texteDuLien: 'Lien 3',
+          titre: '',
+          description: '',
+          texteDuLien: '',
           lien: 'https://app.tealstreet.io/chirurgical',
           backgroundImage: 'BYBIT_1.png',
         }, {
-          titre: 'Titre 6',
-          description: 'Description 3',
-          texteDuLien: 'Lien 3',
+          titre: '',
+          description: '',
+          texteDuLien: '',
           lien: 'https://app.tealstreet.io/chirurgical',
           backgroundImage: 'Kingfisher.png',
         }, {
-          titre: 'Titre 7',
-          description: 'Description 3',
-          texteDuLien: 'Lien 3',
+          titre: `Cadeau de bienvenue jusqu'à 5125 USDT`,
           lien: 'https://app.tealstreet.io/chirurgical',
           backgroundImage: 'Bingx.png',
         },
@@ -101,6 +85,12 @@ export default {
   width: 100%;
   height: 100%;
 }
+
+.banniere-affi{
+  width: 100%;
+  height: 100%;
+  }
+
 .card-link-affi-main {
   display: flex;
   flex-direction: row;

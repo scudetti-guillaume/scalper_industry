@@ -1,22 +1,34 @@
 <template>
-  <div class="card-presentation">
+<div>
+  <v-card class="card-presentation">
+    <div class="background-left"></div>
     <v-card-title class="headline">
       scalper
     </v-card-title>
-      <a v-if="!isLive" href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="unlive-link">
-           <v-icon class="twitch-icon">mdi-twitch</v-icon><span> Twitch</span>
-          </a>
-           <a v-if="isLive" href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="live-link">
-        <div class="live-content">
-          <v-icon class="live-circle mdi mdi-circle"></v-icon>
-          <span class="live-text">En live, rejoins-nous!</span>
-        </div>
+      <v-card-text class="cp-text">
+        <span class="cp-text-1">streamer,</span> trader à plein temps <span>et expert en patern BEUTEU</span>
+      </v-card-text>
+    <div v-if="isOffline" class="link-presentation">
+      <a href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="discord-link">
+         <img class="icone-discord" src="discord.png" width="25px" height="25px" alt="Discord"><span class="span-discord"> Kick</span>
       </a>
-    <v-card-text class="cp-text">
-      <span>streamer, trader à plein temps</span><span> et expert en patern BEUTEU</span>
-    </v-card-text>
-    
-   
+    <a href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="unlive-link">
+      <v-icon class="twitch-icon">mdi-twitch</v-icon><span> Twitch</span>
+    </a>
+  </div>
+  <div v-if="!isOffline" class="link-live-presentation">
+        <a href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="discord-link">
+           <img class="icone-discord" src="discord.png" width="25px" height="25px" alt="Discord"><span class="span-discord"> Kick</span>
+        </a>
+      <a  href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="live-link">
+      <div class="live-content">
+        <v-icon class="live-circle mdi mdi-circle"></v-icon>
+        <span class="live-text">En live, rejoins-nous sur Twitch !</span>
+      </div>
+    </a>
+    </div>
+    <div class="background-right"></div>
+  </v-card>
   </div>
 </template>
 
@@ -24,14 +36,19 @@
 import config from '@/test2.js';
 export default {
   name: 'presentation',
+  computed: {
+    isOffline() {
+      return this.$store.state.isOffline;
+    },
+  },
   data() {
     return {
       isLive: false,
     };
   },
   mounted() {
-  
-  const clientID = config.clientID;
+
+    const clientID = config.clientID;
     const clientSecret = config.clientSecret;
     const channelName = 'Scalper_Chirurgical';
 
@@ -91,14 +108,21 @@ export default {
   margin-bottom: 2%;
   padding-bottom: 1%;
   background-color: #1e1e1e !important;
+  // background-image: url('../static/scalp.png');
+  // background-size: fill; /* Utilisez "cover" pour que l'image couvre entièrement l'arrière-plan */
+  // background-position: center; /* Centrez l'image horizontalement et verticalement */
+  // background-repeat: no-repeat; /* Empêchez la répétition de l'image */
   color: beige !important;
-  width: 80% !important;
-  @media (max-width: 550px) {
-    /* Appliquez ces styles pour les écrans de largeur supérieure ou égale à 768px */
+  width: 80%; /* Ajustez la largeur à 100% pour occuper tout l'espace disponible */
+
+  @media (max-width: 1265px) {
     width: 100% !important;
   }
-    
+
+  @media (max-width: 550px) {
+    width: 100% !important;
   }
+}
 
 
 .headline-1 {
@@ -107,25 +131,61 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
+    z-index: 10;
 }
 
 .cp-text {
-  color: beige !important;
+  color: #39a43d !important;
+  // font-weight: bold;
+    z-index: 10;
+      @media (max-width: 725px) {
+      font-weight: bold;
+     color: #39a43d !important;
+  }
 }
+
+// .cp-text-1{
+//     @media (max-width: 725px) {
+//       font-weight: bold;
+//      color: #000000 !important;
+//   }
+// }
 
 .title-pmu {
   color: #39a43d !important;
   font-size: 1em;
   font-weight: bold;
+    z-index: 10;
 }
+
+.link-presentation{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+width: 250px;
+  z-index: 10;
+}
+
+.link-live-presentation{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 320px;
+  z-index: 10;
+}
+
 
 .live-icon {
   color: green !important;
+    z-index: 10;
   // Couleur verte pour l'icône Twitch
 }
 
 .twitch-icon {
   color: rgb(251, 249, 249) !important;
+    z-index: 10;
   // La couleur Twitch par défaut ici
 }
 
@@ -133,6 +193,7 @@ export default {
   color: red !important;
   font-size: 20px;
   margin-right: 10px;
+    z-index: 10;
 }
 
 
@@ -144,9 +205,11 @@ export default {
   padding: 10px 20px;
   border-radius: 25px;
   transition: background-color 0.2s;
+  margin-top: 1%;
+    z-index: 10;
 }
 
-.unlive-link{
+.unlive-link {
   display: inline-block;
   text-decoration: none;
   background-color: $main;
@@ -154,17 +217,57 @@ export default {
   padding: 10px 20px;
   border-radius: 25px;
   transition: background-color 0.2s;
+    z-index: 10;
 }
 
+.discord-link{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  text-decoration: none;
+  background-color: $main;
+  color: #fff !important;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: background-color 0.2s;
+  margin-right: 0;
+    z-index: 10;
+}
 
+.icone-discord{
+color:#fff !important;
+background-color:$main !important;
+  z-index: 10;
+}
+
+.span-discord{
+margin-left: 10%;
+  z-index: 10;
+}
+
+.discord-link:hover  {
+ transform: scale(1.05);
+   z-index: 10;
+
+}
+
+.unlive-link:hover  {
+ transform: scale(1.05);
+   z-index: 10;
+  // background-color: #41970b;
+}
 
 .live-link:hover {
-  background-color: #41970b;
+ transform: scale(1.05);
+   z-index: 10;
+  // background-color: #41970b;
 }
 
 .live-content {
   display: flex;
   align-items: center;
+    z-index: 10;
 }
 
 
@@ -173,9 +276,34 @@ export default {
   font-weight: bold;
   margin-right: 10px;
   color: aliceblue;
+    z-index: 10;
 }
 
 .live-icon {
   font-size: 20px;
+    z-index: 10;
+}
+
+.background-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%; /* Ajustez la largeur selon vos besoins */
+  height: 100%;
+  background-image: url('../static/scalpbeer.png'); /* Chemin de l'image pour l'arrière-plan à gauche */
+  background-size: contain; /* Ajustez selon le dimensionnement souhaité */
+  // z-index: -1; /* Placez-le derrière le contenu principal */
+}
+
+.background-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%; /* Ajustez la largeur selon vos besoins */
+  height: 100%;
+  background-image: url('../static/scalpmarco.png'); /* Chemin de l'image pour l'arrière-plan à droite */
+  background-size: contain; /* Ajustez selon le dimensionnement souhaité */
+  // z-index: -1; /* Placez-le derrière le contenu principal */
+  background-position: right; /* Aligner l'image à droite */
 }
 </style>

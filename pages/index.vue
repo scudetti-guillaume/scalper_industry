@@ -48,11 +48,6 @@ export default {
 // }
 
 // .v-main__wrap {
-// display: flex;
-// justify-content: center;
-// // align-items: center;
-//   width: 100vw !important;
-// margin: 0 ;
 //   // background: $background;
 // }
 </style>
