@@ -43,7 +43,7 @@ export default {
         {
           titre: '0 %  Frais de maker et de taker en spot',
           description: '',
-          texteDuLien: '0 % Frais de maker en future, frais de taker en future  0,01 %',
+          texteDuLien: '0 % Frais de maker en future, frais de taker en future  0,01 %      ',
           lien: '',
           backgroundImage: 'mexc.png',
         },
@@ -52,7 +52,7 @@ export default {
           description: '- raccourcis - scale ',
           texteDuLien: '- plusieurs API ',
           lien: 'https://app.tealstreet.io/chirurgical',
-          backgroundImage: 'TS.png',
+          backgroundImage: 'tealstreet.png',
         }, {
           titre: '',
           description: '',

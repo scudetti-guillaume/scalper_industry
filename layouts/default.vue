@@ -73,7 +73,7 @@
 
     <v-footer :absolute="!fixed" app class="footer">
       <a href="https://twitter.com/ScalperC" target="_blank" class="social-link-x">
-        <img src="x.svg" width="20" height="20" alt="Twitter Logo" class="social-link-icone" />Contact
+        <img src="x.png" width="20" height="20" alt="Twitter Logo" class="social-link-icone" />Contact
       </a>
       <a href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="social-link">
         <v-icon>mdi-twitch</v-icon> Twitch

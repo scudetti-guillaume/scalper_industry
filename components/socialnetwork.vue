@@ -26,7 +26,7 @@ export default {
           description: '',
           texteDuLien: '',
           lien: 'https://twitter.com/ScalperC',
-          backgroundImage: 'x.png',
+          backgroundImage: 'xxxx.png',
         },
         {
           titre: '10$ offert + 10% de cashback',

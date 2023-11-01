@@ -8,17 +8,17 @@
       <v-card-text class="cp-text">
         <span class="cp-text-1">streamer,</span> trader à plein temps <span>et expert en patern BEUTEU</span>
       </v-card-text>
-    <div v-if="isOffline" class="link-presentation">
-      <a href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="discord-link">
-         <img class="icone-discord" src="discord.png" width="25px" height="25px" alt="Discord"><span class="span-discord"> Kick</span>
+    <div v-if="!isLive" class="link-presentation">
+      <a href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="unlive-link">
+        <v-icon class="twitch-icon">mdi-twitch</v-icon><span> Twitch</span>
       </a>
-    <a href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="unlive-link">
-      <v-icon class="twitch-icon">mdi-twitch</v-icon><span> Twitch</span>
-    </a>
+      <a href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="discord-link">
+         <img class="icone-discord" src="kick.svg" width="25px" height="25px" alt="Discord"><span class="span-discord"> Kick</span>
+      </a>
   </div>
-  <div v-if="!isOffline" class="link-live-presentation">
+  <div v-if="isLive" class="link-live-presentation">
         <a href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="discord-link">
-           <img class="icone-discord" src="discord.png" width="25px" height="25px" alt="Discord"><span class="span-discord"> Kick</span>
+           <img class="icone-discord" src="kick.svg" width="25px" height="25px" alt="Discord"><span class="span-discord"> Kick</span>
         </a>
       <a  href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="live-link">
       <div class="live-content">
@@ -108,10 +108,6 @@ export default {
   margin-bottom: 2%;
   padding-bottom: 1%;
   background-color: #1e1e1e !important;
-  // background-image: url('../static/scalp.png');
-  // background-size: fill; /* Utilisez "cover" pour que l'image couvre entièrement l'arrière-plan */
-  // background-position: center; /* Centrez l'image horizontalement et verticalement */
-  // background-repeat: no-repeat; /* Empêchez la répétition de l'image */
   color: beige !important;
   width: 80%; /* Ajustez la largeur à 100% pour occuper tout l'espace disponible */
 
@@ -143,13 +139,6 @@ export default {
      color: #39a43d !important;
   }
 }
-
-// .cp-text-1{
-//     @media (max-width: 725px) {
-//       font-weight: bold;
-//      color: #000000 !important;
-//   }
-// }
 
 .title-pmu {
   color: #39a43d !important;
@@ -290,9 +279,9 @@ margin-left: 10%;
   left: 0;
   width: 50%; /* Ajustez la largeur selon vos besoins */
   height: 100%;
-  background-image: url('../static/scalpbeer.png'); /* Chemin de l'image pour l'arrière-plan à gauche */
+  background-image: url('../static/left.svg'); /* Chemin de l'image pour l'arrière-plan à gauche */
   background-size: contain; /* Ajustez selon le dimensionnement souhaité */
-  // z-index: -1; /* Placez-le derrière le contenu principal */
+ background-position: left;
 }
 
 .background-right {
@@ -301,7 +290,7 @@ margin-left: 10%;
   right: 0;
   width: 50%; /* Ajustez la largeur selon vos besoins */
   height: 100%;
-  background-image: url('../static/scalpmarco.png'); /* Chemin de l'image pour l'arrière-plan à droite */
+  background-image: url('../static/2.svg'); /* Chemin de l'image pour l'arrière-plan à droite */
   background-size: contain; /* Ajustez selon le dimensionnement souhaité */
   // z-index: -1; /* Placez-le derrière le contenu principal */
   background-position: right; /* Aligner l'image à droite */
