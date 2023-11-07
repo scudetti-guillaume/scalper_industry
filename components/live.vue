@@ -15,38 +15,6 @@ export default {
     },
     methods: {
 
-        //     loadTwitchPlayer() {
-        //         const script = document.createElement('script');
-        //         script.setAttribute('src', 'https://embed.twitch.tv/embed/v1.js');
-        //         script.addEventListener('load', () => {
-        //             new window.Twitch.Embed('twitch-embed', {
-        //                 layout: 'video',
-        //                 width: '100%',
-        //                 height: 480,
-        //                 channel: 'Scalper_Chirurgical',
-        //             });
-        //             this.checkOfflineAfterDelay();
-        //         });
-        //         document.body.appendChild(script);     
-        //     },
-        //  checkOfflineAfterDelay() {
-        //         setTimeout(() => {
-        //        const offlineEmbeds = document.querySelectorAll('.offline-embeds');
-        //             if (offlineEmbeds) {
-        //                 this.isOffline = true;
-        //                 console.log('isofflinefromstart');
-        //                 this.$store.commit('setIsOffline', this.isOffline);
-        //             }else{
-        //             this.isOffline = false;
-        //             this.$store.commit('setIsOffline', this.isOffline);
-        //             }
-        //         }, 150);
-        //     },
-
-
-
-
-
         async loadTwitchPlayer() {
             try {
                 await new Promise((resolve, reject) => {
@@ -74,12 +42,10 @@ export default {
             setTimeout(() => {
                 const offlineEmbeds = document.querySelectorAll('.offline-embeds');
                 if (offlineEmbeds) {
-                    this.isOffline = true;
-                    console.log('Le canal est hors ligne.');
+                    this.isOffline = true;       
                     this.$store.commit('setIsOffline', this.isOffline);
                 } else {
                     this.isOffline = false;
-                    console.log('Le canal est en ligne.');
                     this.$store.commit('setIsOffline', this.isOffline);
                 }
             }, 150);

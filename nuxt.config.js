@@ -49,6 +49,14 @@ export default {
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
+    breakpoint: {
+      thresholds: {
+        // xs: 600, // Point de rupture pour le mode mobile (XS)
+        sm: 1020, // Point de rupture pour le mode tablette (SM) à 1020 pixels
+        // md: 1280, // Autres points de rupture personnalisés si nécessaire
+        // lg: 1920,
+      },
+    },
     customVariables: ['~/assets/variables.scss'],
     theme: {
       dark: true,

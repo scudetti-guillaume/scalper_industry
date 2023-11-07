@@ -3,7 +3,7 @@
     <banniere></banniere>
     <presentation></presentation>
     <socialnetwork></socialnetwork>
-    <live></live>
+    <!-- <live></live> -->
   </div>
 </template>
 

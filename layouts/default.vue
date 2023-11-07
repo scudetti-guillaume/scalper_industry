@@ -1,69 +1,86 @@
 <template>
   <v-app dark>
     <v-app-bar :clipped-left="clipped" fixed app class="main-bar">
-      <!-- Icône du menu burger uniquement en version mobile -->
       <v-app-bar-nav-icon v-if="isMobile" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-
       <router-link to="/" class="main-link">
-        <v-toolbar-title>{{ title }}</v-toolbar-title>
+        <v-img :src="logoImageUrl" alt="Logo" class="logo-image" />
       </router-link>
       <v-spacer />
-
-        <div  v-if="!isMobile" class="header-link">
-          <router-link to="/" class="main-link-2">
+      <v-spacer />
+      <v-spacer />
+      <v-spacer />
+      <v-spacer />
+      <v-spacer />
+      <v-spacer />
+      <v-spacer />
+      <v-spacer />
+      <v-spacer />
+      <v-spacer />
+      <!-- <v-spacer /> -->
+      <!-- <v-spacer />
+      <v-spacer /> -->
+      <div v-if="!isMobile" class="header-link">
+        <v-btn class="main-link-2">
+          <router-link class="main-link-2" to="/">
             <v-toolbar-title>{{ accueil }}</v-toolbar-title>
           </router-link>
-          <router-link to="/" class="main-link-2">
+        </v-btn>
+        <v-btn class="main-link-2">
+          <a class="main-link-2" href="https://prod.thomaslab.duckdns.org/">
             <v-toolbar-title>{{ tournoi }}</v-toolbar-title>
-          </router-link>
-          <router-link to="/inspire" class="main-link-2">
+          </a>
+        </v-btn>
+        <v-btn class="main-link-2">
+          <router-link class="main-link-2" to="/inspire">
             <v-toolbar-title>{{ affiliation }}</v-toolbar-title>
           </router-link>
-        </div>
-        <!-- <v-btn @click="toggleDarkMode" class="toggle-button">
-          <span v-if="isDarkMode">
-            <i class="mdi mdi-weather-night mdi-24px"></i>
-          </span>
-          <span v-else>
-            <i class="mdi mdi-weather-sunny mdi-24px"></i>
-          </span>
-        </v-btn> -->
+        </v-btn>
+     </div>
+      <v-spacer />
+      <v-spacer />
+      <v-spacer />
+      <v-spacer />
+      <v-spacer />
+      <v-spacer />
+      <v-spacer />
+      <v-spacer />
+      <v-spacer />
+      <v-spacer />
+      <v-spacer />
+      <v-spacer />
+      <v-spacer />
+      <v-spacer />
+      <v-spacer />
+      <!-- <v-spacer /> -->
 
+  <v-btn v-if="!isLive" class="main-link-3">
+    <a class="main-link-3" href="https://www.twitch.tv/scalper_chirurgical" target="_blank">twitch</a>
+  </v-btn>
+  <v-btn v-if="isLive" class="main-link-3">
+      <a class="main-link-3" href="https://www.twitch.tv/scalper_chirurgical" target="_blank"> <v-icon class="live-circle mdi mdi-circle"></v-icon>En live</a>
+    </v-btn>
+
+     
+    <v-btn class="main-link-3">
+      <a class="main-link-3" href="https://kick.com/scalper_chirurgical" target="_blank">Kick</a>
+    </v-btn>
+     
     </v-app-bar>
-    
-    
-    
-  <v-navigation-drawer v-if="isMobile" v-model="drawer" app>
-    <v-list>
-        <template v-for="(item, index) in items" >
+
+
+
+    <v-navigation-drawer class="main-nav" v-if="isMobile" v-model="drawer" app>
+      <v-list>
+        <template v-for="(item, index) in items">
           <router-link :to="item.to" class="main-link">
             <v-list-item class="main-link-nav">
-              <v-icon class="main-link-nav-icon">{{ item.icon }}</v-icon><v-list-item-title>{{ item.title }}</v-list-item-title>
+              <v-icon class="main-link-nav-icon">{{ item.icon }}</v-icon><v-list-item-title>{{ item.title
+              }}</v-list-item-title>
             </v-list-item>
           </router-link>
         </template>
-    </v-list>
-  </v-navigation-drawer>
-
-    <!-- <v-navigation-drawer  v-if="isMobile" v-model="drawer" app>
-      <v-list>
-        <router-link to="/" class="main-link">
-          <v-list-item>
-            <v-list-item-title>{{ acceuil }}</v-list-item-title>
-          </v-list-item>
-        </router-link>
-        <router-link to="/tournoi" class="main-link">
-          <v-list-item>
-            <v-list-item-title>{{ tournoi }}</v-list-item-title>
-          </v-list-item>
-        </router-link>
-        <router-link to="/inspire" class="main-link">
-          <v-list-item>
-            <v-list-item-title>{{ affiliation }}</v-list-item-title>
-          </v-list-item>
-        </router-link>
       </v-list>
-    </v-navigation-drawer> -->
+    </v-navigation-drawer>
 
     <v-main>
       <v-container>
@@ -87,21 +104,32 @@
 <script>
 export default {
   name: 'DefaultLayout',
-   computed: {
+  computed: {
+      isLive() {
+      console.log('islive');
+        return this.$store.state.isLive;
+        
+      },
+ 
     isMobile() {
-      // Utilisez $vuetify.breakpoint pour détecter si l'écran est en mode mobile (xs)
-      return this.$vuetify.breakpoint.name === 'xs';
+      if (this.$vuetify.breakpoint.smAndDown) {
+        return true;
+      } else {
+        return false;
+      }
     },
+
   },
   methods: {
     toggleDarkMode() {
       this.isDarkMode = !this.isDarkMode;
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark; // Changer le thème
-       this.$store.commit('setIsDarkMode', this.isDarkMode);
+      this.$store.commit('setIsDarkMode', this.isDarkMode);
     },
   },
   data() {
     return {
+      logoImageUrl: 'logo-gauffre2.png',
       isDarkMode: true,
       clipped: false,
       drawer: false,
@@ -120,7 +148,7 @@ export default {
           title: 'Affiliation',
           to: '/inspire'
         },
-         {
+        {
           icon: 'mdi-chart-bubble',
           title: 'Tournoi',
           to: '/'
@@ -130,60 +158,84 @@ export default {
       tournoi: 'Tournoi',
       accueil: 'Accueil',
       affiliation: 'Affiliation',
+      twitch: 'Twitch',
       to: '/'
     }
 
 
   }
+  
 }
 </script>
 
 
 <style lang="scss">
 .main-bar {
-  background: $main !important;
+  z-index: 100 !important;
+  background: #1e1e1e !important;
+}
+
+.main-nav {
+  z-index: 101 !important;
+
 }
 
 .main-link-nav {
-display: flex;
+  display: flex;
   text-decoration: none;
   border: solid $main 1px !important;
   border-radius: 10px;
+  // background: white !important;
 }
 
-.main-link-nav-icon{
-margin-right: 2px;
+.main-link-nav-icon {
+  margin-right: 2px;
 
 }
 
- .main-link-nav:hover {
-     transform: scale(1.05);
-    background-color:$main !important; 
-  }
+.main-link-nav:hover {
+  transform: scale(1.05);
+  background-color: $main !important;
+}
 
 .main-link {
   text-decoration: none;
-  color: rgb(0, 0, 0) !important;
+  color: white !important;
+  // margin-right: 30%;
 }
 
 .main-link-2:hover {
   text-decoration: none;
- transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 
 .main-link-2 {
-  text-decoration: none;
-  color: rgb(0, 0, 0) !important;
-  border: solid #2e8c35 3px !important;
-  border-radius:10px;
+  text-decoration: none !important;
+  color: white !important;
+  background-color: #39a43d !important;
+  // border: solid #2e8c35 3px !important;
+  // border-radius: 10px;
   padding: 2%;
   margin-right: 4%;
 }
 
+.main-link-3 {
+  text-decoration: none !important;
+  color: white !important;
+  background-color: #39a43d !important;
+  // border: solid #2e8c35 3px !important;
+  // border-radius: 10px;
+  // padding: 2%;
+  margin-right: 1%;
+}
+
+
+
 .main-link:hover {
   text-decoration: none;
- transform: scale(1.05);
+  transform: scale(1.05);
+
 }
 
 .footer {
@@ -196,8 +248,8 @@ margin-right: 2px;
   justify-content: space-between;
   align-items: center;
   width: 250px;
-  margin-right: 2%;
-  
+  margin-right: 4%;
+
   //  @media (max-width: 1200px) {
   //   width: 30%; /* Par exemple, 50% de largeur pour les écrans de 768px et plus */
   // }
@@ -228,22 +280,32 @@ margin-right: 2px;
 }
 
 .social-link-x {
-display: flex;
-align-items: center;
-justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   color: white !important;
   margin: 0 10px;
 }
-.social-link{
+
+.social-link {
   text-decoration: none;
   color: white !important;
   margin: 0 10px;
 }
+
 .social-link-icone {
   color: white !important;
   text-align: center;
   margin-right: 10px;
- 
+
+}
+
+.logo-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px; // Ajustez la largeur de l'image selon vos besoins
+  height: auto; // Pour conserver le rapport hauteur/largeur
 }
 </style>

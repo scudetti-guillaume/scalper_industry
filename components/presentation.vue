@@ -1,34 +1,36 @@
 <template>
-<div>
-  <v-card class="card-presentation">
-    <div class="background-left"></div>
-    <v-card-title class="headline">
-      scalper
-    </v-card-title>
-      <v-card-text class="cp-text">
-        <span class="cp-text-1">streamer,</span> trader à plein temps <span>et expert en patern BEUTEU</span>
-      </v-card-text>
-    <div v-if="!isLive" class="link-presentation">
-      <a href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="unlive-link">
-        <v-icon class="twitch-icon">mdi-twitch</v-icon><span> Twitch</span>
-      </a>
-      <a href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="discord-link">
-         <img class="icone-discord" src="kick.svg" width="25px" height="25px" alt="Discord"><span class="span-discord"> Kick</span>
-      </a>
-  </div>
-  <div v-if="isLive" class="link-live-presentation">
-        <a href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="discord-link">
-           <img class="icone-discord" src="kick.svg" width="25px" height="25px" alt="Discord"><span class="span-discord"> Kick</span>
+  <div>
+    <v-card class="card-presentation">
+      <div class="background-left"></div>
+      <v-card-title class="headline">
+        Scalper_Chirurgical
+      </v-card-title>
+      <!-- <v-card-text class="cp-text">
+        <span>Trader crypto depuis 6 ans </span><span class="cp-text-2"><span>Stratégie du peignoir et&nbsp;</span><span>l'inventeur du pattern Beuteu</span> </span>
+      </v-card-text> -->
+      <div class="link-presentation">
+        <a href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="unlive-link">
+          <span> s'inscrire au tournoi</span>
         </a>
-      <a  href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="live-link">
-      <div class="live-content">
-        <v-icon class="live-circle mdi mdi-circle"></v-icon>
-        <span class="live-text">En live, rejoins-nous sur Twitch !</span>
+        <!-- <a href="https://kick.com/scalper_chirurgical" target="_blank" class="discord-link">
+          <img class="icone-discord" src="kick-2.png" width="25px" height="25px" alt="Discord"><span class="span-discord">
+            Kick</span>
+        </a> -->
       </div>
-    </a>
-    </div>
-    <div class="background-right"></div>
-  </v-card>
+      <!-- <div v-if="isLive" class="link-live-presentation">
+        <a href="https://kick.com/scalper_chirurgical" target="_blank" class="discord-link">
+          <img class="icone-discord" src="kick.svg" width="25px" height="25px" alt="Discord"><span class="span-discord">
+            Kick</span>
+        </a>
+        <a href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="live-link">
+          <div class="live-content">
+            <v-icon class="live-circle mdi mdi-circle"></v-icon>
+            <span class="live-text">En live, rejoins-nous sur Twitch !</span>
+          </div>
+        </a>
+      </div> -->
+      <div class="background-right"></div>
+    </v-card>
   </div>
 </template>
 
@@ -78,9 +80,10 @@ export default {
             .then(data => {
               if (data.data.length > 0) {
                 this.isLive = true;
+                this.$store.commit('setIsLive', this.isLive);
               } else {
-                console.log('pas en live');
                 this.isLive = false;
+                this.$store.commit('setIsLive', this.isLive);
               }
             })
             .catch(error => {
@@ -109,7 +112,8 @@ export default {
   padding-bottom: 1%;
   background-color: #1e1e1e !important;
   color: beige !important;
-  width: 80%; /* Ajustez la largeur à 100% pour occuper tout l'espace disponible */
+  width: 100%;
+  /* Ajustez la largeur à 100% pour occuper tout l'espace disponible */
 
   @media (max-width: 1265px) {
     width: 100% !important;
@@ -121,22 +125,36 @@ export default {
 }
 
 
-.headline-1 {
+.headline{
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-    z-index: 10;
+  z-index: 10;
+  font-weight: bold;
 }
 
 .cp-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-weight: bold;
   color: #39a43d !important;
-  // font-weight: bold;
-    z-index: 10;
-      @media (max-width: 725px) {
-      font-weight: bold;
-     color: #39a43d !important;
+  z-index: 10;
+
+  @media (max-width: 725px) {
+    font-weight: bold;
+    color: #39a43d !important;
+  }
+}
+
+.cp-text-2 {
+display: flex;
+  @media (max-width: 560px) {
+   flex-direction: column;
+   height: 33px !important;
   }
 }
 
@@ -144,37 +162,37 @@ export default {
   color: #39a43d !important;
   font-size: 1em;
   font-weight: bold;
-    z-index: 10;
-}
-
-.link-presentation{
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
-width: 250px;
   z-index: 10;
 }
 
-.link-live-presentation{
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-width: 320px;
+.link-presentation {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  z-index: 10;
+}
+
+.link-live-presentation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 320px;
   z-index: 10;
 }
 
 
 .live-icon {
   color: green !important;
-    z-index: 10;
+  z-index: 10;
   // Couleur verte pour l'icône Twitch
 }
 
 .twitch-icon {
   color: rgb(251, 249, 249) !important;
-    z-index: 10;
+  z-index: 10;
   // La couleur Twitch par défaut ici
 }
 
@@ -182,7 +200,7 @@ width: 320px;
   color: red !important;
   font-size: 20px;
   margin-right: 10px;
-    z-index: 10;
+  z-index: 10;
 }
 
 
@@ -195,7 +213,7 @@ width: 320px;
   border-radius: 25px;
   transition: background-color 0.2s;
   margin-top: 1%;
-    z-index: 10;
+  z-index: 10;
 }
 
 .unlive-link {
@@ -206,10 +224,10 @@ width: 320px;
   padding: 10px 20px;
   border-radius: 25px;
   transition: background-color 0.2s;
-    z-index: 10;
+  z-index: 10;
 }
 
-.discord-link{
+.discord-link {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -221,42 +239,42 @@ width: 320px;
   border-radius: 25px;
   transition: background-color 0.2s;
   margin-right: 0;
-    z-index: 10;
-}
-
-.icone-discord{
-color:#fff !important;
-background-color:$main !important;
   z-index: 10;
 }
 
-.span-discord{
-margin-left: 10%;
+.icone-discord {
+  color: #fff !important;
+  background-color: $main !important;
   z-index: 10;
 }
 
-.discord-link:hover  {
- transform: scale(1.05);
-   z-index: 10;
+.span-discord {
+  margin-left: 10%;
+  z-index: 10;
+}
+
+.discord-link:hover {
+  transform: scale(1.05);
+  z-index: 10;
 
 }
 
-.unlive-link:hover  {
- transform: scale(1.05);
-   z-index: 10;
+.unlive-link:hover {
+  transform: scale(1.05);
+  z-index: 10;
   // background-color: #41970b;
 }
 
 .live-link:hover {
- transform: scale(1.05);
-   z-index: 10;
+  transform: scale(1.05);
+  z-index: 10;
   // background-color: #41970b;
 }
 
 .live-content {
   display: flex;
   align-items: center;
-    z-index: 10;
+  z-index: 10;
 }
 
 
@@ -265,34 +283,40 @@ margin-left: 10%;
   font-weight: bold;
   margin-right: 10px;
   color: aliceblue;
-    z-index: 10;
+  z-index: 10;
 }
 
 .live-icon {
   font-size: 20px;
-    z-index: 10;
+  z-index: 10;
 }
 
 .background-left {
   position: absolute;
   top: 0;
   left: 0;
-  width: 50%; /* Ajustez la largeur selon vos besoins */
+  width: 50%;
+  /* Ajustez la largeur selon vos besoins */
   height: 100%;
-  background-image: url('../static/left.svg'); /* Chemin de l'image pour l'arrière-plan à gauche */
-  background-size: contain; /* Ajustez selon le dimensionnement souhaité */
- background-position: left;
+  background-image: url('../static/left.svg');
+  /* Chemin de l'image pour l'arrière-plan à gauche */
+  background-size: contain;
+  /* Ajustez selon le dimensionnement souhaité */
+  background-position: left;
 }
 
 .background-right {
   position: absolute;
   top: 0;
   right: 0;
-  width: 50%; /* Ajustez la largeur selon vos besoins */
+  width: 50%;
+  /* Ajustez la largeur selon vos besoins */
   height: 100%;
-  background-image: url('../static/2.svg'); /* Chemin de l'image pour l'arrière-plan à droite */
-  background-size: contain; /* Ajustez selon le dimensionnement souhaité */
+  background-image: url('../static/marco.png');
+  /* Chemin de l'image pour l'arrière-plan à droite */
+  background-size: contain;
+  /* Ajustez selon le dimensionnement souhaité */
   // z-index: -1; /* Placez-le derrière le contenu principal */
-  background-position: right; /* Aligner l'image à droite */
-}
-</style>
+  background-position: right;
+  /* Aligner l'image à droite */
+}</style>
