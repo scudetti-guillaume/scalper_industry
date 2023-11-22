@@ -124,11 +124,8 @@ export default {
   width: 200px;
   height: 200px;
   margin-bottom: 2%;
-  // border: 6px solid $main !important;
-  // border-radius: 10px !important;
 }
 
-/* Style de la description (masquée au départ) */
 .card-content-affi {
   display: none;
   position: absolute;
@@ -139,7 +136,6 @@ export default {
   background: rgba(0, 0, 0, 0.7);
   color: #fff;
   padding: 10px;
-  // border-radius: 10px;
   text-align: center;
   transform: translateY(100%);
 }
@@ -168,11 +164,8 @@ export default {
   text-align: center;
   width: 200px;
   height: 200px;
-  // border: 6px solid $main !important;
-  // border-radius: 10px !important;
 }
 
-/* Style de la description (masquée au départ) */
 .card-content-x {
   display: none;
   position: absolute;
@@ -183,13 +176,10 @@ export default {
   background: rgba(0, 0, 0, 0.7);
   color: #fff;
   padding: 10px;
-  // border-radius: 10px;
   text-align: center;
   transform: translateY(100%);
 }
 
-
-/* Effet de survol pour afficher la description */
 .card-social-affi:hover .card-content-affi {
   display: block;
   transform: translateY(0);

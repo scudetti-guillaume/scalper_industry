@@ -1,35 +1,25 @@
 <template>
   <div>
     <v-card class="card-presentation">
-      <div class="background-left"></div>
+      <div v-if="!isMobile" class="background-left"></div>
+      <!-- <div class="wrapper-snow">
+           <div v-for="(index, snowflake) in snowflakes" :key="index" :style="getSnowflakeStyle(index)">
+           </div>
+         </div> -->
       <v-card-title class="headline">
-        Scalper_Chirurgical
+        <span class="headline-bis">Tournoi de noël</span>
       </v-card-title>
-      <!-- <v-card-text class="cp-text">
-        <span>Trader crypto depuis 6 ans </span><span class="cp-text-2"><span>Stratégie du peignoir et&nbsp;</span><span>l'inventeur du pattern Beuteu</span> </span>
-      </v-card-text> -->
+       
+      <v-card-text class="cp-text">
+        <!-- <span>Tournoi de noel</span> -->
+        <span class="cp-text-2">Cashprice 1000$</span>
+      </v-card-text>
       <div class="link-presentation">
-        <a href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="unlive-link">
+        <a href="https://prod.thomaslab.duckdns.org/" target="_blank" class="unlive-link">
           <span> s'inscrire au tournoi</span>
         </a>
-        <!-- <a href="https://kick.com/scalper_chirurgical" target="_blank" class="discord-link">
-          <img class="icone-discord" src="kick-2.png" width="25px" height="25px" alt="Discord"><span class="span-discord">
-            Kick</span>
-        </a> -->
       </div>
-      <!-- <div v-if="isLive" class="link-live-presentation">
-        <a href="https://kick.com/scalper_chirurgical" target="_blank" class="discord-link">
-          <img class="icone-discord" src="kick.svg" width="25px" height="25px" alt="Discord"><span class="span-discord">
-            Kick</span>
-        </a>
-        <a href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="live-link">
-          <div class="live-content">
-            <v-icon class="live-circle mdi mdi-circle"></v-icon>
-            <span class="live-text">En live, rejoins-nous sur Twitch !</span>
-          </div>
-        </a>
-      </div> -->
-      <div class="background-right"></div>
+      <div v-if="!isMobile" class="background-right"></div>
     </v-card>
   </div>
 </template>
@@ -39,6 +29,9 @@ import config from '@/test2.js';
 export default {
   name: 'presentation',
   computed: {
+      isMobile() {
+        return this.$vuetify.breakpoint.name === 'xs';
+      },
     isOffline() {
       return this.$store.state.isOffline;
     },
@@ -46,8 +39,37 @@ export default {
   data() {
     return {
       isLive: false,
+       snowflakes: Array.from({ length: 20 }, (_, index) => index),
     };
+    
   },
+     methods: {
+    getSnowflakeStyle(index) {
+      const randomSize = Math.random() * 8 + 2;
+      const randomLeft = Math.random() * 100; 
+      const animationDuration = Math.random() * 5 + 5; 
+      const animationTimingFunction = 'cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      //  const distance = 100; // Ajustez la distance sur laquelle les flocons descendent
+      // const maxOpacity = 0.8; // Ajustez la valeur maximale d'opacité
+      // // Calcul de l'opacité en fonction de la position du flocon
+      // const opacity = maxOpacity - (index / this.snowflakes.length) * maxOpacity;
+      return {
+        position: 'absolute',
+        width: `${randomSize}px`,
+        height: `${randomSize}px`,
+        background: '#fff',
+        borderRadius: '50%',
+        animation: 'snowfall linear infinite',
+        animationDuration: `${animationDuration}s`,
+        animationTimingFunction,
+        left: `${randomLeft}%`,
+        transform: 'translateY(-100px)', 
+        // opacity: opacity < 0 ? 0 : opacity,
+      };
+    },
+  },
+
+
   mounted() {
 
     const clientID = config.clientID;
@@ -101,6 +123,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes&display=swap');
 .card-presentation {
   display: flex;
   flex-direction: column;
@@ -113,8 +136,6 @@ export default {
   background-color: #1e1e1e !important;
   color: beige !important;
   width: 100%;
-  /* Ajustez la largeur à 100% pour occuper tout l'espace disponible */
-
   @media (max-width: 1265px) {
     width: 100% !important;
   }
@@ -133,7 +154,15 @@ export default {
   text-align: center;
   z-index: 10;
   font-weight: bold;
+
 }
+
+.headline-bis{
+  font-family: 'Great Vibes',cursive !important;
+  font-size: 2.8rem;
+  margin-top: 1%;
+}
+
 
 .cp-text {
   display: flex;
@@ -152,11 +181,55 @@ export default {
 
 .cp-text-2 {
 display: flex;
+font-size: 1.4em;
+ font-family: anton;
+ animation: zoom 2s infinite alternate;  
+@keyframes zoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
   @media (max-width: 560px) {
    flex-direction: column;
    height: 33px !important;
   }
 }
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(150px);
+  }
+}
+
+.snowflake {
+  position: fixed;
+  width: 5px;
+  height: 5px;
+  background: #fff;
+  border-radius: 50%;
+  animation: snowfall linear infinite;
+  animation-duration: 5s; /* Ajustez la durée de l'animation selon vos préférences */
+}
+
+/* Positionnez les flocons de neige à différents endroits sur la page */
+.snowflake:nth-child(1) {
+  left: 50%;
+}
+
+.snowflake:nth-child(2) {
+  left: 65%;
+}
+
+.snowflake:nth-child(3) {
+  left: 75%;
+}
+
 
 .title-pmu {
   color: #39a43d !important;
@@ -172,6 +245,7 @@ display: flex;
   align-items: center;
   width: 250px;
   z-index: 10;
+  // margin-bottom: 1%;
 }
 
 .link-live-presentation {
@@ -319,4 +393,6 @@ display: flex;
   // z-index: -1; /* Placez-le derrière le contenu principal */
   background-position: right;
   /* Aligner l'image à droite */
-}</style>
+}
+
+</style>

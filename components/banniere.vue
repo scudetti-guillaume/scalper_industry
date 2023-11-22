@@ -24,7 +24,6 @@ export default {
     name: 'presentation',
     computed: {
         isDarkMode() {
-            console.log(this.$store.state.isDarkMode);
             return this.$store.state.isDarkMode;
         },
     },
@@ -51,22 +50,18 @@ export default {
        font-size: 1.8rem;
 
      @media (max-width: 1264px) {
-    /* Appliquez ces styles pour les écrans de largeur supérieure ou égale à 768px */
     font-size: 1.6rem;
   }
    
    
      @media (max-width: 1044px) {
-    /* Appliquez ces styles pour les écrans de largeur supérieure ou égale à 768px */
     font-size: 1.2rem;
   }
 
   @media (max-width: 1024px) {
-    /* Appliquez ces styles pour les écrans de largeur supérieure ou égale à 1024px */
     font-size: 1.6rem;
   }
   @media (max-width: 860px) {
-    /* Appliquez ces styles pour les écrans de largeur supérieure ou égale à 1024px */
     font-size: 1.2rem;
   }
    }
@@ -82,7 +77,6 @@ export default {
        font-size: larger;
        padding-top: 1%;
        padding-bottom: 1%;
-       // white-space: nowrap
    }
 
    .title-pmu {

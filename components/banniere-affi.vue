@@ -51,22 +51,18 @@ export default {
        font-size: 1.8rem;
 
      @media (max-width: 1264px) {
-    /* Appliquez ces styles pour les écrans de largeur supérieure ou égale à 768px */
     font-size: 1.6rem;
   }
    
    
      @media (max-width: 1044px) {
-    /* Appliquez ces styles pour les écrans de largeur supérieure ou égale à 768px */
     font-size: 1.2rem;
   }
 
   @media (max-width: 1024px) {
-    /* Appliquez ces styles pour les écrans de largeur supérieure ou égale à 1024px */
     font-size: 1.6rem;
   }
   @media (max-width: 860px) {
-    /* Appliquez ces styles pour les écrans de largeur supérieure ou égale à 1024px */
     font-size: 1.2rem;
   }
    }

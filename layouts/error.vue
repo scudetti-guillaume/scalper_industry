@@ -1,13 +1,14 @@
 <template>
   <v-app dark>
-    <h1 v-if="error.statusCode === 404">
+    <h1 v-if="error.statusCode === 404" class="text-center">
       {{ pageNotFound }}
     </h1>
-    <h1 v-else>
+    <h1 v-else class="text-center">
       {{ otherError }}
     </h1>
-    <NuxtLink to="/">
-      Home page
+    <div class="background"></div>
+    <NuxtLink to="/" class="text-center">
+      Retour à l'accueil
     </NuxtLink>
   </v-app>
 </template>
@@ -22,13 +23,13 @@ export default {
       default: null
     }
   },
-  data () {
+  data() {
     return {
-      pageNotFound: '404 Not Found',
-      otherError: 'An error occurred'
+      pageNotFound: "Aie il n'y a rien ici",
+      otherError: "Aie il n'y a rien ici",
     }
   },
-  head () {
+  head() {
     const title =
       this.error.statusCode === 404 ? this.pageNotFound : this.otherError
     return {
@@ -42,4 +43,19 @@ export default {
 h1 {
   font-size: 20px;
 }
+
+.text-center {
+  text-align: center;
+  text-decoration: none;
+}
+
+.background {
+  background-image: url('../static/marco.png');
+  background-position: center center;
+  background-size: contain;
+  height: 20vh;
+  z-index: 1;
+  margin-bottom: 2%;
+}
 </style>
+
