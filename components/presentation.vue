@@ -2,21 +2,15 @@
   <div>
     <v-card class="card-presentation">
       <div v-if="!isMobile" class="background-left"></div>
-      <!-- <div class="wrapper-snow">
-           <div v-for="(index, snowflake) in snowflakes" :key="index" :style="getSnowflakeStyle(index)">
-           </div>
-         </div> -->
       <v-card-title class="headline">
         <span class="headline-bis">Tournoi de noël</span>
       </v-card-title>
-       
       <v-card-text class="cp-text">
-        <!-- <span>Tournoi de noel</span> -->
         <span class="cp-text-2">Cashprice 1000$</span>
       </v-card-text>
       <div class="link-presentation">
         <a href="https://prod.thomaslab.duckdns.org/" target="_blank" class="unlive-link">
-          <span> s'inscrire au tournoi</span>
+          <span class="cp-text-3"> s'inscrire au tournoi</span>
         </a>
       </div>
       <div v-if="!isMobile" class="background-right"></div>
@@ -39,35 +33,10 @@ export default {
   data() {
     return {
       isLive: false,
-       snowflakes: Array.from({ length: 20 }, (_, index) => index),
     };
     
   },
-     methods: {
-    getSnowflakeStyle(index) {
-      const randomSize = Math.random() * 8 + 2;
-      const randomLeft = Math.random() * 100; 
-      const animationDuration = Math.random() * 5 + 5; 
-      const animationTimingFunction = 'cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-      //  const distance = 100; // Ajustez la distance sur laquelle les flocons descendent
-      // const maxOpacity = 0.8; // Ajustez la valeur maximale d'opacité
-      // // Calcul de l'opacité en fonction de la position du flocon
-      // const opacity = maxOpacity - (index / this.snowflakes.length) * maxOpacity;
-      return {
-        position: 'absolute',
-        width: `${randomSize}px`,
-        height: `${randomSize}px`,
-        background: '#fff',
-        borderRadius: '50%',
-        animation: 'snowfall linear infinite',
-        animationDuration: `${animationDuration}s`,
-        animationTimingFunction,
-        left: `${randomLeft}%`,
-        transform: 'translateY(-100px)', 
-        // opacity: opacity < 0 ? 0 : opacity,
-      };
-    },
-  },
+
 
 
   mounted() {
@@ -124,6 +93,7 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Great+Vibes&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;400;500;700&display=swap');
 .card-presentation {
   display: flex;
   flex-direction: column;
@@ -139,12 +109,10 @@ export default {
   @media (max-width: 1265px) {
     width: 100% !important;
   }
-
   @media (max-width: 550px) {
     width: 100% !important;
   }
 }
-
 
 .headline{
   width: 100%;
@@ -154,7 +122,6 @@ export default {
   text-align: center;
   z-index: 10;
   font-weight: bold;
-
 }
 
 .headline-bis{
@@ -162,7 +129,6 @@ export default {
   font-size: 2.8rem;
   margin-top: 1%;
 }
-
 
 .cp-text {
   display: flex;
@@ -198,38 +164,10 @@ font-size: 1.4em;
   }
 }
 
-@keyframes snowfall {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(150px);
-  }
-}
+.cp-text-3 {
+ font-family: Kanit;
 
-.snowflake {
-  position: fixed;
-  width: 5px;
-  height: 5px;
-  background: #fff;
-  border-radius: 50%;
-  animation: snowfall linear infinite;
-  animation-duration: 5s; /* Ajustez la durée de l'animation selon vos préférences */
 }
-
-/* Positionnez les flocons de neige à différents endroits sur la page */
-.snowflake:nth-child(1) {
-  left: 50%;
-}
-
-.snowflake:nth-child(2) {
-  left: 65%;
-}
-
-.snowflake:nth-child(3) {
-  left: 75%;
-}
-
 
 .title-pmu {
   color: #39a43d !important;

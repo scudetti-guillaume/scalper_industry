@@ -19,10 +19,14 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=yes' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;400;500;700&display=swap',
+      },
     ]
   },
 
@@ -34,26 +38,22 @@ export default {
   plugins: [
   ],
 
-  // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
   ],
 
-  // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
   ],
 
-  // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     breakpoint: {
       thresholds: {
-        // xs: 600, // Point de rupture pour le mode mobile (XS)
-        sm: 1020, // Point de rupture pour le mode tablette (SM) à 1020 pixels
-        // md: 1280, // Autres points de rupture personnalisés si nécessaire
+        // xs: 600, 
+        sm: 1090, 
+        // md: 1280, 
         // lg: 1920,
       },
     },

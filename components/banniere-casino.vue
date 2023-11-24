@@ -1,39 +1,29 @@
 <template>
-<div>
-    <div class="card-banniere" v-if="isDarkMode" >
-        <v-card-title class="headline-1">
-          <div>
-            <span class="title-pmu">PMU DES TRADERS</span>
-            <span class="span-pmu">Met toi bien, Prend un lien !</span>
-          </div>
-        </v-card-title>
-      </div>
-       <div class="card-banniere" v-if="!isDarkMode" >
+    <div>
+        <div class="card-banniere" v-if="isDarkMode">
             <v-card-title class="headline-1">
-              <div>
-                <span class="title-pmu">PMU DES TRADERS</span>
-                <span class="span-green-pmu">Met toi bien, Prend un lien !</span>
-              </div>
+                <div>
+                    <span class="title-pmu">PMU DES TRADERS</span>
+                    <span class="span-pmu">Sort le colt, spin une slot !</span>
+                </div>
             </v-card-title>
-          </div>
+        </div>
     </div>
 </template>
       
 <script >
 export default {
-    name: 'banniere-affiliation',
+    name: 'banniere-casino',
     computed: {
         isDarkMode() {
+            console.log(this.$store.state.isDarkMode);
             return this.$store.state.isDarkMode;
         },
     },
 }
 </script>
       
-<style lang="scss">   
-
-
-.card-banniere {
+<style lang="scss">   .card-banniere {
        display: flex;
        flex-direction: column;
        align-items: center;
@@ -41,7 +31,7 @@ export default {
        text-align: center;
        margin-top: 1%;
        margin-bottom: 2%;
-    //    background-color: #1e1e1e !important;
+       //    background-color: #1e1e1e !important;
        color: beige !important;
        width: 100% !important;
        overflow: hidden;
@@ -49,21 +39,22 @@ export default {
        border-bottom: 3px solid #39a43d !important;
        font-size: 1.8rem;
 
-     @media (max-width: 1264px) {
-    font-size: 1.6rem;
-  }
-   
-   
-     @media (max-width: 1044px) {
-    font-size: 1.2rem;
-  }
+       @media (max-width: 1264px) {
+           font-size: 1.6rem;
+       }
 
-  @media (max-width: 1024px) {
-    font-size: 1.6rem;
-  }
-  @media (max-width: 860px) {
-    font-size: 1.2rem;
-  }
+
+       @media (max-width: 1044px) {
+           font-size: 1.2rem;
+       }
+
+       @media (max-width: 1024px) {
+           font-size: 1.6rem;
+       }
+
+       @media (max-width: 860px) {
+           font-size: 1.2rem;
+       }
    }
 
    .headline-1 {
@@ -91,9 +82,9 @@ export default {
        white-space: nowrap;
        margin-left: 15px;
    }
-   
-     .span-green-pmu {
-     color :  #39a43d !important;
+
+   .span-green-pmu {
+       color: #39a43d !important;
        display: inline-block;
        white-space: nowrap;
        margin-left: 15px;

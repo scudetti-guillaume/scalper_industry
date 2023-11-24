@@ -26,6 +26,11 @@
             <v-toolbar-title>{{ affiliation }}</v-toolbar-title>
           </router-link>
         </v-btn>
+         <v-btn class="main-link-2">
+            <router-link class="main-link-2-bis" to="/casino">
+              <v-toolbar-title>{{ casino}}</v-toolbar-title>
+            </router-link>
+          </v-btn>
      </div>
       <v-spacer />
     <v-spacer />
@@ -142,17 +147,17 @@ export default {
           title: 'Affiliation',
           to: '/inspire'
         },
-        // {
-        //   icon: 'mdi-chart-bubble',
-        //   title: 'Tournoi',
-        //   href: 'https://prod.thomaslab.duckdns.org/',
-        //  to: ''
-        // },
+        {
+          icon: 'mdi-slot-machine-outline',
+          title: 'Casino',
+         to: '/casino'
+        },
       ],
       title: 'Scalper',
       tournoi: 'Tournoi',
       accueil: 'Accueil',
       affiliation: 'Affiliation',
+      casino: 'Casino',
       twitch: 'Twitch',
       to: '/'
     }
@@ -253,6 +258,7 @@ export default {
   // border-radius: 10px;
   padding: 2%;
   margin-right: 4%;
+  font-family: Kanit;
 }
 
 .main-link-2-bis {
@@ -269,6 +275,7 @@ export default {
   // border-radius: 10px;
   // padding: 2%;
   margin-right: 1%;
+    font-family: Kanit;
 }
 
 
@@ -285,9 +292,9 @@ export default {
 
 .header-link {
    position: fixed;
-  top: 50%; /* Position verticale au centre de l'écran */
-  left: 50%; /* Position horizontale au centre de l'écran */
-  transform: translate(-50%, -50%); /* Décalage pour centrer correctement */
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%); 
   display: flex;
   flex-direction: row;
 
@@ -336,15 +343,15 @@ export default {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 200px; /* Ajustez la largeur en fonction de vos besoins */
-  height: auto;  /* Pour centrer horizontalement */
+  width: 200px; 
+  height: auto; 
 }
 
 .logo-image {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 200px; // Ajustez la largeur de l'image selon vos besoins
-  height: auto; // Pour conserver le rapport hauteur/largeur
+  width: 200px; 
+  height: auto; 
 }
 </style>
