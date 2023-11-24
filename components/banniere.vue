@@ -1,22 +1,22 @@
 <template>
-<div>
-    <div class="card-banniere" v-if="isDarkMode" >
-        <v-card-title class="headline-1">
-          <div>
-            <span class="title-pmu">PMU DES TRADERS</span>
-            <span class="span-pmu">Prend une bière, rejoins la guerre !</span>
-          </div>
-        </v-card-title>
-      </div>
-       <div class="card-banniere" v-if="!isDarkMode" >
-            <v-card-title class="headline-1">
-              <div>
-                <span class="title-pmu">PMU DES TRADERS</span>
-                <span class="span-green-pmu">Prend une bière, rejoins la guerre !</span>
-              </div>
-            </v-card-title>
-          </div>
+  <div>
+    <div class="card-banniere" v-if="isDarkMode">
+      <v-card-title class="headline-1">
+        <div>
+          <span class="title-pmu">{{$i18n.t('pmuTitle')}}</span>
+          <span class="span-pmu">{{$i18n.t('pmuDescription')}}</span>
+        </div>
+      </v-card-title>
     </div>
+    <div class="card-banniere" v-else>
+      <v-card-title class="headline-1">
+        <div>
+          <span class="title-pmu">{{ $i18n.t('pmuTitle') }}</span>
+          <span class="span-green-pmu">{{ $i18n.t('pmuGreenDescription') }}</span>
+        </div>
+      </v-card-title>
+    </div>
+  </div>
 </template>
       
 <script >

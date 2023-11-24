@@ -3,14 +3,14 @@
     <v-card class="card-presentation">
       <div v-if="!isMobile" class="background-left"></div>
       <v-card-title class="headline">
-        <span class="headline-bis">Tournoi de noël</span>
+        <span class="headline-bis">{{ $t('tournoiNoelTitle') }}</span>
       </v-card-title>
       <v-card-text class="cp-text">
-        <span class="cp-text-2">Cashprice 1000$</span>
+        <span class="cp-text-2">{{ $t('tournoiNoelCashPrice') }}</span>
       </v-card-text>
       <div class="link-presentation">
         <a href="https://prod.thomaslab.duckdns.org/" target="_blank" class="unlive-link">
-          <span class="cp-text-3"> s'inscrire au tournoi</span>
+          <span class="cp-text-3">{{ $t('tournoiNoelLink') }}</span>
         </a>
       </div>
       <div v-if="!isMobile" class="background-right"></div>

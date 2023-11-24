@@ -15,6 +15,11 @@ import banniere from '../components/banniere.vue';
 
 export default {
     name: 'IndexPage',
+      mounted() {
+    // Accédez à la langue actuellement détectée avec $i18n.locale
+    console.log('Langue détectée:', this.$i18n.locale);
+  },
+
     components: {
         presentation,
         socialnetwork,

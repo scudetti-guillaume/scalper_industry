@@ -3,8 +3,8 @@
         <div class="card-banniere" v-if="isDarkMode">
             <v-card-title class="headline-1">
                 <div>
-                    <span class="title-pmu">PMU DES TRADERS</span>
-                    <span class="span-pmu">Sort le colt, spin une slot !</span>
+                 <span class="title-pmu">{{ $t('pmuTitle') }}</span>
+              <span class="span-pmu">{{ $t('pmuDescriptionCasino') }}</span>
                 </div>
             </v-card-title>
         </div>

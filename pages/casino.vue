@@ -3,96 +3,76 @@
         <div class="banniere-affi-casino">
             <bannierecasino></bannierecasino>
         </div>
-
         <v-card class="card-leo">
-            <a class="card-main-logo" href="https://cryptoleo.com/fr/" target="_blank"></a>
-            <v-card-title>L'avis du SCALPER </v-card-title>
-            <v-card-text class="card-avis">
-                <p>Un casino 100 % en cryptomonnaies et sécurisé avec un choix immense de provider de Pragmatic Play à Nolimit
-                City, il y a plus de 5000 machines.</p>
-                <p>Mais aussi des paris sportifs, lives casino et du blackjack.</p>
-                <p> Un systéme de récompense généreux entre les cashback et les freespins.</p>
-            </v-card-text>
-            <v-card-title class="tilte-bonus">Bonus de bienvenue</v-card-title>
-            <!-- <v-card-text class="title-condition"> -->
-            <v-card-text class="card-leo-text-1"><span class="card-leo-text-1-bis"><span class="card-leo-text-1-150"> + 150 %</span> jusqu'à 3000 € de
-                    dépot</span></v-card-text>
-            <!-- <v-card-text class="card-leo-text-1">Jusqu'a 3000€</v-card-text> -->
-            <v-card-text class="card-leo-text-1">Wager de X 35</v-card-text>
-            <v-card-text class="card-leo-text-1">Dépôt minimum de 20 €</v-card-text>
-            <v-card-text class="card-leo-text-1">Mise maximale de 5 € </v-card-text>
-            <v-card-text class="card-leo-text-2">14 jours pour miser</v-card-text>
-            <!-- </v-card-text> -->
-            <div class="link-casino-main">
-                <a href="https://cryptoleo.com/fr/" target="_blank" class="casino-link-btn">
-                    <span>Reclamer le Bonus</span>
-                </a>
-            </div>
-        </v-card>
+        <a class="card-main-logo" href="https://cryptoleo.com/fr/" target="_blank"></a>
+        <v-card-title>{{ $t('leoReviewTitle') }}</v-card-title>
+        <v-card-text class="card-avis">
+            <p>{{ $t('leoReviewContent1') }}</p>
+            <p>{{ $t('leoReviewContent2') }}</p>
+            <p>{{ $t('leoReviewContent3') }}</p>
+        </v-card-text>
+        <v-card-title class="tilte-bonus">{{ $t('welcomeBonusTitle') }}</v-card-title>
+        <v-card-text class="card-leo-text-1"><span class="card-leo-text-1-bis"><span class="card-leo-text-1-150">{{ $t('bonusPercentage') }}&nbsp</span>{{ $t('upTo') }}</span></v-card-text>
+        <v-card-text class="card-leo-text-1">{{ $t('wager') }} X 35</v-card-text>
+        <v-card-text class="card-leo-text-1">{{ $t('minDeposit') }} </v-card-text>
+        <v-card-text class="card-leo-text-1">{{ $t('maxBet') }} €5</v-card-text>
+        <v-card-text class="card-leo-text-2">{{ $t('wagerPeriod') }}</v-card-text>
+        <div class="link-casino-main">
+            <a href="https://cryptoleo.com/fr/" target="_blank" class="casino-link-btn">
+                <span>{{ $t('claimBonus') }}</span>
+            </a>
+        </div>
+    </v-card>
+
 
         <div class="card-container">
             <v-card class="card-casino-1">
-                <v-card-title class="headline-casino">Cashback jusqu'a 12.5%</v-card-title>
-                <v-card-text class="headline-casino">* Sous Conditions</v-card-text>
+                <v-card-title class="headline-casino">{{ $t('cashbackTitle') }}</v-card-title>
+                <v-card-text class="headline-casino">{{ $t('cashbackConditions') }}</v-card-text>
                 <div class="link-casino-info">
                     <a href="https://cryptoleo.com/fr/" target="_blank" class="casino-link-btn">
-                        <span>Reclamer le Bonus</span>
+                        <span>{{ $t('claimBonus') }}</span>
                     </a>
                     <div class="info-casino" @click="openModal"><span class="info-casino-i">i</span></div>
                 </div>
                 <v-dialog ref="dialog" v-model="dialog" max-width="600">
                     <v-card class="title-condition">
-                        <v-card-title class="title-condition-casino">Conditions</v-card-title>
-                        <v-card-text class="title-condition-casino-1"> 5 % pour 20 € de dépot jusqu'a 12.5% pour 5000
-                            €</v-card-text>
-                        <v-card-text class="title-condition-casino-1"> 25 % pour les VIP</v-card-text>
+                        <v-card-title class="title-condition-casino">{{ $t('cashbackConditionsCard') }}</v-card-title>
+                        <v-card-text class="title-condition-casino-1">{{ $t('cashbackConditionsCard1') }}</v-card-text>
+                        <v-card-text class="title-condition-casino-1">{{ $t('cashbackConditionsCard2') }}</v-card-text>
                         <v-card-actions>
-                            <v-btn @click="closeModal">Fermer</v-btn>
+                            <v-btn @click="closeModal">{{ $t('closeButton') }}</v-btn>
                         </v-card-actions>
                     </v-card>
                 </v-dialog>
             </v-card>
             <v-card class="card-casino-2">
-                <v-card-title class="headline-casino">Free spin à gagner</v-card-title>
-                <v-card-text class="headline-casino">dépôt minimum de 20 €</v-card-text>
+                <v-card-title class="headline-casino">{{ $t('freeSpinTitle') }}</v-card-title>
+                <v-card-text class="headline-casino">{{ $t('freeSpinConditions') }}</v-card-text>
                 <div class="link-casino">
                     <a href="https://cryptoleo.com/fr/" target="_blank" class="casino-link-btn">
-                        <span>Reclamer le Bonus</span>
+                        <span>{{ $t('claimBonus') }}</span>
                     </a>
                 </div>
             </v-card>
             <v-card class="card-casino-3">
-                <v-card-title class="headline-casino"> 1 Fortune Wheel</v-card-title>
-                <v-card-text class="headline-casino">dépôt minimum de 200 €</v-card-text>
+                <v-card-title class="headline-casino">{{ $t('fortuneWheelTitle') }}</v-card-title>
+                <v-card-text class="headline-casino">{{ $t('fortuneWheelConditions') }}</v-card-text>
                 <div class="link-casino">
                     <a href="https://cryptoleo.com/fr/" target="_blank" class="casino-link-btn">
-                        <span>Reclamer le Bonus</span>
+                        <span>{{ $t('claimBonus') }}</span>
                     </a>
                 </div>
             </v-card>
         </div>
-        <div class="card-link-casino">
-            <a v-for="(carte, index) in cartes" :key="index" :href="carte.lien" target="_blank" class="card-link-affi">
-                <v-card class="card-social-affi" :style="{ backgroundImage: `url(${carte.backgroundImage})` }">
-                    <div class="card-content-affi">
-                        <v-card-actions class="cc-detail-casino">{{ carte.titre }}</v-card-actions>
-                        <v-card-text class="cc-detail-title-2">{{ carte.description }}</v-card-text>
-                        <v-card-text class="cc-detail-title-3">{{ carte.texteDuLien }}</v-card-text>
-                        <v-card-text class="cc-detail-title-3">{{ carte.texteDuLien2 }}</v-card-text>
-                        <v-card-text class="cc-detail-title-3">{{ carte.texteDuLien3 }}</v-card-text>
-                    </div>
-                </v-card>
-            </a>
-        </div>
         <div class="prevent-main">
             <v-card class="prevent-card">
                 <!-- <v-card-title class="prevent-card-title">Prévention</v-card-title> -->
-                <v-card-text class="prevent-card-1">LE CASINO EST INTERDIT AUX MINEURS ! </v-card-text>
-                <v-card-text  class="prevent-card-2">Ne déposez jamais de l'argent dont vous avez besoin, jouer au casino doit rester un
-                    divertissement. </v-card-text>
-                <v-card-text class="prevent-card-title">Ne cherchez pas à regagner vos pertes </v-card-text>
-                <v-card-text class="prevent-card-title"> Si vous avez besoin d'aide : 09 74 75 13 13</v-card-text>
-                <v-card-text class="prevent-card-title"> <a class="link-info-casino" href="https://www.joueurs-info-service.fr/" target="_blank">Joueurs info service</a></v-card-text>
+                <v-card-text class="prevent-card-1">{{ $t('preventText1') }} </v-card-text>
+                <v-card-text  class="prevent-card-2">{{ $t('preventText2') }}  </v-card-text>
+                <v-card-text class="prevent-card-title">{{ $t('preventSubtitle1') }}  </v-card-text>
+                <v-card-text class="prevent-card-title">{{ $t('preventSubtitle2') }}  </v-card-text>
+                <v-card-text class="prevent-card-title"> <a class="link-info-casino" href="https://www.joueurs-info-service.fr/" target="_blank">{{ $t('preventSubtitle3Link') }}  </a></v-card-text>
             </v-card>
         </div>
     </div>
@@ -120,18 +100,6 @@ export default {
     data() {
         return {
             dialog: false,
-            cartes: [
-                {
-                    titre: 'Bonus 150 %',
-                    description: 'mise de 35x sur le dépôt',
-                    texteDuLien: 'dépôt minimum de 20 €',
-                    texteDuLien2: 'mise maximale de 5 €',
-                    texteDuLien3: '14 jours pour miser',
-                    lien: '',
-                    backgroundImage: 'Leonwhite.png',
-                },
-
-            ],
         };
     },
 };

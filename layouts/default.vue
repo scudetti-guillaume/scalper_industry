@@ -11,24 +11,25 @@
       <v-spacer />
    <v-spacer />
       <div v-if="!isMobile" class="header-link">
+     <v-btn @click="toggleLanguage">FR/EN</v-btn>
         <v-btn class="main-link-2">
           <router-link class="main-link-2-bis" to="/">
-            <v-toolbar-title>{{ accueil }}</v-toolbar-title>
+            <v-toolbar-title>{{ $i18n.t('accueil') }}</v-toolbar-title>
           </router-link>
         </v-btn>
         <v-btn class="main-link-2">
           <a class="main-link-2-bis" target="_blank" href="https://prod.thomaslab.duckdns.org/">
-            <v-toolbar-title>{{ tournoi }}</v-toolbar-title>
+            <v-toolbar-title>{{ $i18n.t('tournoi') }}</v-toolbar-title>
           </a>
         </v-btn>
         <v-btn class="main-link-2">
           <router-link class="main-link-2-bis" to="/inspire">
-            <v-toolbar-title>{{ affiliation }}</v-toolbar-title>
+            <v-toolbar-title>{{ $i18n.t('affiliation') }}</v-toolbar-title>
           </router-link>
         </v-btn>
          <v-btn class="main-link-2">
             <router-link class="main-link-2-bis" to="/casino">
-              <v-toolbar-title>{{ casino}}</v-toolbar-title>
+              <v-toolbar-title>{{ $i18n.t('casino') }}</v-toolbar-title>
             </router-link>
           </v-btn>
      </div>
@@ -41,7 +42,7 @@
     <a class="main-link-3" href="https://www.twitch.tv/scalper_chirurgical" target="_blank">twitch</a>
   </v-btn>
   <v-btn v-if="isLive  && !isMobilebis" class="main-link-3">
-      <a class="main-link-3" href="https://www.twitch.tv/scalper_chirurgical" target="_blank"> <v-icon class="live-circle mdi mdi-circle"></v-icon>En live</a>
+      <a class="main-link-3" href="https://www.twitch.tv/scalper_chirurgical" target="_blank"> <v-icon class="live-circle mdi mdi-circle"></v-icon>{{ $i18n.t('live') }}</a>
     </v-btn>
 
      
@@ -65,7 +66,7 @@
         </template>
           <a class="main-link-nav-link"  href='https://prod.thomaslab.duckdns.org/'  target="_blank">
       <v-icon class="main-link-nav-link-1" height="30px">mdi-tournament</v-icon>
-      <a class="main-link-nav-link-2" href="https://prod.thomaslab.duckdns.org/" target="_blank">Tournoi</a>
+      <a class="main-link-nav-link-2" href="https://prod.thomaslab.duckdns.org/" target="_blank">{{ $i18n.t('tournoi') }}</a>
            </a>
          <a class="main-link-nav-link"  href="https://www.twitch.tv/scalper_chirurgical"  target="_blank">
     <v-icon class="main-link-nav-link-1" height="30px">mdi-twitch</v-icon>
@@ -125,6 +126,13 @@ export default {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark; // Changer le thème
       this.$store.commit('setIsDarkMode', this.isDarkMode);
     },
+      toggleLanguage() {
+      const currentLanguage = this.$i18n.locale;
+      const newLanguage = currentLanguage === 'fr' ? 'en' : 'fr';
+      this.$i18n.setLocale(newLanguage);
+      console.log('Langue changée:', newLanguage);
+    },
+    
   },
   data() {
     return {
@@ -139,26 +147,26 @@ export default {
       items: [
         {
           icon: 'mdi-apps',
-          title: 'Accueil',
+          title: this.$i18n.t('accueil'),
           to: '/'
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Affiliation',
+          title: this.$i18n.t('affiliation'),
           to: '/inspire'
         },
         {
           icon: 'mdi-slot-machine-outline',
-          title: 'Casino',
+          title: this.$i18n.t('casino'),
          to: '/casino'
         },
       ],
-      title: 'Scalper',
-      tournoi: 'Tournoi',
-      accueil: 'Accueil',
-      affiliation: 'Affiliation',
-      casino: 'Casino',
-      twitch: 'Twitch',
+      // title: 'Scalper',
+      // tournoi: 'Tournoi',
+      // accueil: 'Accueil',
+      // affiliation: 'Affiliation',
+      // casino: 'Casino',
+      // twitch: 'Twitch',
       to: '/'
     }
 
@@ -253,7 +261,7 @@ export default {
 .main-link-2 {
   text-decoration: none !important;
   color: white !important;
-  background-color: #39a43d !important;
+  background-color: $main !important;
   // border: solid #2e8c35 3px !important;
   // border-radius: 10px;
   padding: 2%;
@@ -270,7 +278,7 @@ export default {
 .main-link-3 {
   text-decoration: none !important;
   color: white !important;
-  background-color: #39a43d !important;
+  background-color: $main !important;
   // border: solid #2e8c35 3px !important;
   // border-radius: 10px;
   // padding: 2%;
@@ -311,10 +319,6 @@ export default {
   }
 }
 
-.btn-tournoi {
-  color: blue !important;
-  background: bisque !important;
-}
 
 .social-link-x {
   display: flex;

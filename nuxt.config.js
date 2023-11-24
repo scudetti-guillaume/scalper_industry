@@ -46,7 +46,21 @@ export default {
   ],
 
   modules: [
+    '@nuxtjs/i18n'
   ],
+  i18n: {
+    locales: [
+      { code: 'fr', iso: 'fr-FR', file: 'fr.json' },
+      { code: 'en', iso: 'en-US', file: 'en.json' },
+    ],
+    defaultLocale: 'fr',
+    strategy: 'prefix_and_default',
+    langDir: './locales/',
+    lazy: false,
+    vueI18n: {
+      fallbackLocale: 'fr',
+    },
+  },
 
   vuetify: {
     breakpoint: {
