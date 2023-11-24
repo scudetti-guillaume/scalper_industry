@@ -8,10 +8,10 @@
             <a class="card-main-logo" href="https://cryptoleo.com/fr/" target="_blank"></a>
             <v-card-title>L'avis du SCALPER </v-card-title>
             <v-card-text class="card-avis">
-                Un casino 100 % en cryptomonnaies et sécurisé avec un choix immense de provider de Pragmatic Play à Nolimit
-                City, il y a plus de 5000 machines.
-                Mais aussi des paris sportifs, lives casino et du blackjack.
-                Un systéme de récompense généreux entre les cashback et les freespins.
+                <p>Un casino 100 % en cryptomonnaies et sécurisé avec un choix immense de provider de Pragmatic Play à Nolimit
+                City, il y a plus de 5000 machines.</p>
+                <p>Mais aussi des paris sportifs, lives casino et du blackjack.</p>
+                <p> Un systéme de récompense généreux entre les cashback et les freespins.</p>
             </v-card-text>
             <v-card-title class="tilte-bonus">Bonus de bienvenue</v-card-title>
             <!-- <v-card-text class="title-condition"> -->
