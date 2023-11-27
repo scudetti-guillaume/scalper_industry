@@ -26,6 +26,7 @@ export default {
       {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;400;500;700&display=swap',
+        href: 'https://fonts.googleapis.com/css?family=Great+Vibes&display=swap',
       },
     ]
   },
@@ -66,7 +67,8 @@ export default {
     breakpoint: {
       thresholds: {
         // xs: 600, 
-        sm: 1090, 
+        xss:405,
+        sm: 1235, 
         // md: 1280, 
         // lg: 1920,
       },

@@ -7,9 +7,9 @@
       <a v-for="(carte, index) in cartes" :key="index" :href="carte.lien" target="_blank" class="card-link-affi">
         <v-card class="card-social-affi" :style="{ backgroundImage: `url(${carte.backgroundImage})` }">
           <div class="card-content-affi">
-            <v-card-actions class="cc-detail-title">{{ $t(`carte${index + 1}Title`) }}</v-card-actions>
-            <v-card-text class="cc-detail-title-2">{{ $t(`carte${index + 1}Description`) }}</v-card-text>
-            <v-card-actions class="cc-detail-title-3">{{ $t(`carte${index + 1}LinkText`) }}</v-card-actions>
+            <v-card-actions class="cc-detail-title">{{ $i18n.t(`carte${index + 1}Title`) }}</v-card-actions>
+            <v-card-text class="cc-detail-title-2">{{ $i18n.t(`carte${index + 1}Description`) }}</v-card-text>
+            <v-card-actions class="cc-detail-title-3">{{  $i18n.t(`carte${index + 1}LinkText`) }}</v-card-actions>
           </div>
         </v-card>
       </a>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="card-banniere" v-if="isDarkMode">
+    <div class="card-banniere" >
       <v-card-title class="headline-1">
         <div>
           <span class="title-pmu">{{$i18n.t('pmuTitle')}}</span>
@@ -8,14 +8,14 @@
         </div>
       </v-card-title>
     </div>
-    <div class="card-banniere" v-else>
+    <!-- <div class="card-banniere" v-else>
       <v-card-title class="headline-1">
         <div>
           <span class="title-pmu">{{ $i18n.t('pmuTitle') }}</span>
           <span class="span-green-pmu">{{ $i18n.t('pmuGreenDescription') }}</span>
         </div>
       </v-card-title>
-    </div>
+    </div> -->
   </div>
 </template>
       
@@ -45,8 +45,8 @@ export default {
        color: beige !important;
        width: 100% !important;
        overflow: hidden;
-       border-top: 3px solid #39a43d !important;
-       border-bottom: 3px solid #39a43d !important;
+       border-top: 3px solid $main !important;
+       border-bottom: 3px solid $main !important;
        font-size: 1.8rem;
 
      @media (max-width: 1264px) {
@@ -72,7 +72,7 @@ export default {
        justify-content: center;
        align-items: center;
        text-align: center;
-       border-bottom: #39a43d solid 1px !important;
+       border-bottom: $main solid 1px !important;
        padding: 0;
        font-size: larger;
        padding-top: 1%;
@@ -80,7 +80,7 @@ export default {
    }
 
    .title-pmu {
-       border-right: #39a43d solid 3px !important;
+       border-right: $main solid 3px !important;
        padding-right: 10px;
        height: 100%;
    }
@@ -92,7 +92,7 @@ export default {
    }
    
      .span-green-pmu {
-     color :  #39a43d !important;
+     color :  $main !important;
        display: inline-block;
        white-space: nowrap;
        margin-left: 15px;

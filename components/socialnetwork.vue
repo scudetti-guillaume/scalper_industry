@@ -4,9 +4,9 @@
       <a v-for="(carte, index) in cartes" :key="index" :href="carte.lien" target="_blank" class="card-link">
         <v-card class="card-social" :style="{ backgroundImage: `url(${carte.backgroundImage})` }" alt="Partner's logo">
           <div class="card-content">
-            <v-card-actions class="cc-detail-title">{{ $t(`socialNetworkCard${index + 1}Title`) }}</v-card-actions>
-            <v-card-text class="cc-detail-title-2">{{ $t(`socialNetworkCard${index + 1}Description`) }}</v-card-text>
-            <v-card-actions class="cc-detail-title-3">{{ $t(`socialNetworkCard${index + 1}LinkText`) }}</v-card-actions>
+            <v-card-actions class="cc-detail-title">{{  $i18n.t(`socialNetworkCard${index + 1}Title`) }}</v-card-actions>
+            <v-card-text class="cc-detail-title-2">{{  $i18n.t(`socialNetworkCard${index + 1}Description`) }}</v-card-text>
+            <v-card-actions class="cc-detail-title-3">{{  $i18n.t(`socialNetworkCard${index + 1}LinkText`) }}</v-card-actions>
           </div>
         </v-card>
       </a>
@@ -28,16 +28,16 @@ export default {
           backgroundImage: 'xxxx.png',
         },
         {
-          titre: this.$t('socialNetworkCard2Title'),
-          description: this.$t('socialNetworkCard2Description'),
-          texteDuLien: this.$t('socialNetworkCard2LinkText'),
+          titre: this.$i18n.t('socialNetworkCard2Title'),
+          description: this.$i18n.t('socialNetworkCard2Description'),
+          texteDuLien: this.$i18n.t('socialNetworkCard2LinkText'),
           lien: 'https://www.bitget.com/expressly?channelCode=hete&vipCode=9k3f&languageType=0',
           backgroundImage: 'bitget.png',
         },
         {
-          titre: this.$t('socialNetworkCard3Title'),
-          description: this.$t('socialNetworkCard3Description'),
-          texteDuLien: this.$t('socialNetworkCard3LinkText'),
+          titre: this.$i18n.t('socialNetworkCard3Title'),
+          description: this.$i18n.t('socialNetworkCard3Description'),
+          texteDuLien: this.$i18n.t('socialNetworkCard3LinkText'),
           lien: '',
           backgroundImage: 'mexc.png',
         },

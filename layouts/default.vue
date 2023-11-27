@@ -42,7 +42,7 @@
     <a class="main-link-3" href="https://www.twitch.tv/scalper_chirurgical" target="_blank">twitch</a>
   </v-btn>
   <v-btn v-if="isLive  && !isMobilebis" class="main-link-3">
-      <a class="main-link-3" href="https://www.twitch.tv/scalper_chirurgical" target="_blank"> <v-icon class="live-circle mdi mdi-circle"></v-icon>{{ $i18n.t('live') }}</a>
+      <a class="main-link-3" href="https://www.twitch.tv/scalper_chirurgical" target="_blank"> <v-icon class="live-circle">mdi-circle</v-icon>{{ $i18n.t('live') }}</a>
     </v-btn>
 
      
@@ -99,14 +99,10 @@
 </template>
 
 <script>
+import config from '../test2.js';
 export default {
   name: 'DefaultLayout',
   computed: {
-      isLive() {
-        return this.$store.state.isLive;
-        
-      },
- 
     isMobile() {
       if (this.$vuetify.breakpoint.smAndDown) {
         return true;
@@ -115,9 +111,12 @@ export default {
       }
     },
       isMobilebis() {
-
       return this.$vuetify.breakpoint.name === 'xs';
     },
+    // isLive() {
+    //   return this.$store.state.isLive;
+
+    // },
 
   },
   methods: {
@@ -132,6 +131,9 @@ export default {
       this.$i18n.setLocale(newLanguage);
       console.log('Langue changée:', newLanguage);
     },
+    //   isLive() {
+    //   return this.$store.state.isLive;
+    // },
     
   },
   data() {
@@ -144,6 +146,7 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
+      isLive: false,
       items: [
         {
           icon: 'mdi-apps',
@@ -171,7 +174,58 @@ export default {
     }
 
 
-  }
+  },
+    mounted() {
+    const clientID = config.clientID;
+    const clientSecret = config.clientSecret;
+    const channelName = 'Scalper_Chirurgical';
+
+
+    const url = 'https://id.twitch.tv/oauth2/token';
+    const params = new URLSearchParams();
+    params.append('client_id', clientID);
+    params.append('client_secret', clientSecret);
+    params.append('grant_type', 'client_credentials');
+
+    fetch(url, {
+      method: 'POST',
+      body: params,
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.access_token) {
+          const accessToken = data.access_token;
+          fetch(`https://api.twitch.tv/helix/streams?user_login=${channelName}`, {
+            method: 'GET',
+            headers: {
+              'Client-ID': clientID,
+              'Authorization': `Bearer ${accessToken}`,
+            },
+          })
+            .then(response => response.json())
+            .then(data => {
+              if (data.data.length > 0) {
+              console.log('Le stream est en ligne !');
+                this.isLive = true;
+                // this.$store.commit('setIsLive', this.isLive);
+              } else {
+                console.log('Le stream est horsligne !');
+                this.isLive = false;
+                // this.$store.commit('setIsLive', this.isLive);
+              }
+            })
+            .catch(error => {
+              console.error('Erreur lors de la requête à l\'API Twitch : ' + error);
+            });
+        } else {
+          console.error('Erreur lors de la récupération du jeton d\'accès.');
+        }
+      })
+      .catch(error => {
+        console.error('Erreur lors de la requête pour obtenir le jeton d\'accès : ' + error);
+      });
+    console.log('Langue détectée:', this.$i18n.locale);
+  },
   
 }
 </script>
