@@ -3,7 +3,7 @@
         <div class="card-banniere" >
             <v-card-title class="headline-1">
                 <div>
-                 <span class="title-pmu">{{  $i18n.t('pmuTitle') }}</span>
+                 <span class="title-pmu-casino">{{  $i18n.t('pmuTitle') }}</span>
               <span class="span-pmu">{{  $i18n.t('pmuDescriptionCasino') }}</span>
                 </div>
             </v-card-title>
@@ -72,8 +72,9 @@ export default {
        // white-space: nowrap
    }
 
-   .title-pmu {
-       border-right: #39a43d solid 3px !important;
+   .title-pmu-casino {
+       color: $main;
+       border-right: $main solid 3px !important;
        padding-right: 10px;
        height: 100%;
    }

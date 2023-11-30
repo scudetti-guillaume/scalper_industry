@@ -248,6 +248,13 @@ export default {
   text-decoration: none;
   border: solid $main 1px !important;
   border-radius: 10px;
+  margin-bottom: 1%;
+  &:hover{
+    // transform: scale(1.05);
+  background-color: $main !important;
+    border-radius: 15px !important;
+  
+  }
   // background: white !important;
 }
 
@@ -257,13 +264,21 @@ export default {
   border: solid $main 1px !important;
   border-radius: 10px;
   text-decoration: none;
+  margin-bottom: 1%;
   &:hover {
+  //  transform: scale(1.05);
     border: solid $main 1px !important;
     border-radius: 10px;
     background-color: $main !important;
   }
   // background: white !important;
 }
+
+// .main-link-nav:hover {
+//   transform: scale(1.05);
+//   background-color: $main !important;
+//     border-radius: 10px !important;
+// }
 
 .main-link-nav-link-1{
   display: flex;
@@ -293,10 +308,7 @@ export default {
 
 }
 
-.main-link-nav:hover {
-  transform: scale(1.05);
-  background-color: $main !important;
-}
+
 
 .main-link {
   text-decoration: none;
@@ -342,7 +354,14 @@ export default {
     //  font-weight: bold;
 }
 
-
+.live-circle{
+background-color:red !important;
+color: red !important;
+height: 15px !important;
+width: 15px !important;
+margin-right: 10px;
+border-radius: 50%;
+}
 
 .main-link:hover {
   text-decoration: none;

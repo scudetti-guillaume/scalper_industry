@@ -48,6 +48,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;400;500;700&display=swap');
 .social-main {
   display: flex;
   flex-direction: row;
@@ -111,19 +112,19 @@ export default {
 
 .cc-detail-title{
 padding: 0;
-font-family: Anton;
+font-family: Kanit;
 }
 
 .cc-detail-title-2{
 padding: 0;
 padding-top: 6%;
-font-family: Anton;
+font-family: Kanit;
 }
 
 .cc-detail-title-3{
 padding: 0;
 padding-top: 6%;
-font-family: Anton;
+font-family: Kanit;
 }
 
 </style>

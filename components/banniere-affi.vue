@@ -81,6 +81,7 @@ export default {
    }
 
    .title-pmu {
+      color:$main ;
        border-right: $main solid 3px !important;
        padding-right: 10px;
        height: 100%;

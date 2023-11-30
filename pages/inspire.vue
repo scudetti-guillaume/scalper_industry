@@ -75,6 +75,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;400;500;700&display=swap');
 .social-main-affi {
   display: flex;
   flex-direction: column;
@@ -97,6 +98,9 @@ export default {
   flex-wrap: wrap;
   margin-top: 2%;
   width: 100%;
+  @media (max-width: 425px){
+     justify-content:center;
+  }
 }
 
 .card-social-affi {
@@ -122,11 +126,12 @@ export default {
   width: 200px;
   height: 200px;
   margin-bottom: 2%;
+  text-decoration: none !important;
 }
 
 .card-content-affi {
   display: none;
-  position: absolute;
+  position:relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -143,7 +148,8 @@ display: flex;
 align-items: center;
 justify-content: center;
 text-align: center;
-font-family: Anton;
+font-family: Kanit;
+padding:8px 0 0 0 ;
 }
 
 .cc-detail-title-2{
@@ -152,6 +158,7 @@ align-items: center;
 justify-content: center;
 text-align: center;
 font-family: Anton;
+padding:16px 0 0 0 ;
 }
 
 .cc-detail-title-3{
@@ -160,6 +167,7 @@ align-items: center;
 justify-content: center;
 text-align: center;
 font-family: Anton;
+padding:8px 0 0 0 ;
 }
 
 .card-social-affi:hover .card-content-affi {
