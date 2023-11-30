@@ -43,13 +43,15 @@
     "leoReviewContent2": "Also offering sports betting, live casinos, and blackjack.",
     "leoReviewContent3": "A generous reward system with cashback and free spins.",
     "welcomeBonusTitle": "Welcome Bonus",
-    "bonusPercentage": "150%",
+    "bonusPercentage": "+150%",
     "upTo": "up to €3000 deposit",
     "deposit": "deposit",
     "wager": "Wager of X35",
     "minDeposit": "Minimum deposit of €20",
     "maxBet": "Maximum bet of €5",
     "wagerPeriod": "14 days to wager",
+    "fortune": "1 free spin of the wheel of fortune *",
+    "fortunebis": "minimum deposit of €200",
     "claimBonus": "Claim Bonus",
     "depositNow": "Deposit now",
     "cashbackTitle": "Cashback up to 12.5%",
@@ -84,7 +86,14 @@
     "preventSubtitle1": "Do not try to recover your losses",
     "preventSubtitle2": "If you need help : 09 74 75 13 13",
     "preventSubtitle3": "Players Info Service",
-    "preventSubtitle3Link": "joueurs info service"
+    "preventSubtitle3Link": "joueurs info service",
+    "errors": {
+        "pageNotFound": "Oops, there's nothing here",
+        "otherError": "Oops, there's nothing here"
+    },
+    "navigation": {
+        "backToHome": "Back to home"
+    }
 
     
 }

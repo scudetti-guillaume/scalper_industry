@@ -43,12 +43,14 @@
     "leoReviewContent2": "Mais aussi des paris sportifs, des casinos en direct et du blackjack.",
     "leoReviewContent3": "Un système de récompense généreux entre les cashback et les freespins.",
     "welcomeBonusTitle": "Bonus de bienvenue",
-    "bonusPercentage": "150 % ",
+    "bonusPercentage": "+150 % ",
     "upTo": "jusqu'à 3000 € de dépôt ",
     "wager": "Wager de X35",
     "minDeposit": "Dépôt minimum de 20 €",
     "maxBet": "Mise maximale de 5€",
     "wagerPeriod": "14 jours pour miser",
+    "fortune": "1 tour de roue de la fortune offert * ",
+    "fortunebis": "dépôt de minimum 200€",
     "claimBonus": "Réclamer le Bonus",
     "depositNow": "Déposez maintenant",
     "cashbackTitle": "Cashback jusqu'à 12.5%",
@@ -81,5 +83,12 @@
     "preventSubtitle1": "Ne cherchez pas à regagner vos pertes",
     "preventSubtitle2": "Si vous avez besoin d'aide : 09 74 75 13 13",
     "preventSubtitle3": "Joueurs info service",
-    "preventSubtitle3Link": "joueurs info service"
+    "preventSubtitle3Link": "joueurs info service",
+    "errors": {
+        "pageNotFound": "Aie, il n'y a rien ici",
+        "otherError": "Aie, il y a eu une erreur"
+    },
+    "navigation": {
+        "backToHome": "Retour à l'accueil"
+    }
 }

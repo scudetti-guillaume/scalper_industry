@@ -69,7 +69,7 @@ export default {
   background-size: contain!important;
   background-position: center !important;
   position: relative;
-  transition: transform 0.2s;
+  // transition: transform 0.5s;
 }
 
 .card-link {
@@ -89,6 +89,7 @@ export default {
 .card-content {
   display: none;
   position: absolute;
+  opacity: 0;
   top: 0;
   left: 0;
   width: 100%;
@@ -99,27 +100,30 @@ export default {
   // border-radius: 10px;
   text-align: center;
   transform: translateY(100%);
+  transition: opacity 1s ease; 
 }
 
 .card-social:hover .card-content {
   display: block;
   transform: translateY(0);
+   opacity: 1; 
 }
 
 .cc-detail-title{
 padding: 0;
+font-family: Anton;
 }
 
 .cc-detail-title-2{
 padding: 0;
 padding-top: 6%;
-
+font-family: Anton;
 }
 
 .cc-detail-title-3{
 padding: 0;
 padding-top: 6%;
-
+font-family: Anton;
 }
 
 </style>

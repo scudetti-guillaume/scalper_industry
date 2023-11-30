@@ -143,6 +143,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 text-align: center;
+font-family: Anton;
 }
 
 .cc-detail-title-2{
@@ -150,7 +151,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 text-align: center;
-
+font-family: Anton;
 }
 
 .cc-detail-title-3{
@@ -158,7 +159,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 text-align: center;
-
+font-family: Anton;
 }
 
 .card-social-affi:hover .card-content-affi {

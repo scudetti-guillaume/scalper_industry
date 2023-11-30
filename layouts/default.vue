@@ -232,6 +232,7 @@ export default {
 
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;400;500;700&display=swap');
 .main-bar {
   z-index: 100 !important;
   background: #1e1e1e !important;
@@ -316,16 +317,16 @@ export default {
   text-decoration: none !important;
   color: white !important;
   background-color: $main !important;
-  // border: solid #2e8c35 3px !important;
-  // border-radius: 10px;
   padding: 2%;
   margin-right: 4%;
-  font-family: Kanit;
+  font-family: Kanit !important;
+  // font-weight: bold;
 }
 
 .main-link-2-bis {
   text-decoration: none !important;
   color: white !important;
+  font-family:Kanit !important;
 }
 
 
@@ -337,7 +338,8 @@ export default {
   // border-radius: 10px;
   // padding: 2%;
   margin-right: 1%;
-    font-family: Kanit;
+    font-family: Kanit  !important;
+    //  font-weight: bold;
 }
 
 

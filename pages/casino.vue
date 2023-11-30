@@ -186,10 +186,17 @@
                     <div class="bonus-label">{{ $i18n.t('wagerPeriod') }}</div>
                 </div>
             </v-card-text>
+            <v-divider class="dividerbis"></v-divider>
+            <v-card-text class="bonus-info-bis">
+                <div class="bonus-row">
+                    <div class="bonus-label">{{ $i18n.t('fortune') }}</div>
+                    <div class="bonus-label">{{ $i18n.t('fortunebis') }}</div>
+                </div>
+            </v-card-text>
             <v-divider class="divider"></v-divider>
             <div class="link-section">
                 <div class="link-casino-main">
-                    <a href="https://cryptoleo.com/fr/" target="_blank" class="casino-link-btn">
+                    <a href="https://cryptoleo.com/fr/" target="_blank" class="casino-link-btn-bis">
                         <span>{{ $i18n.t('claimBonus') }}</span>
                     </a>
                 </div>
@@ -209,7 +216,7 @@
                     </a>
                     <div class="info-casino" @click="openModal(1)"><span class="info-casino-i">i</span></div>
                 </div>
-                <v-dialog ref="dialog1" v-model="dialog1" max-width="600">
+                <v-dialog ref="dialog1" v-model="dialog1" max-width="600" :overlay-opacity="0.8">
                     <v-card class="title-condition">
                         <v-card-title class="title-condition-casino">
                             {{ $i18n.t('cashbackConditionsCard') }}
@@ -230,7 +237,7 @@
                         </v-card-text>
                         <v-card-actions>
                             <div class="link-casino-info-bis">
-                                <a href="https://cryptoleo.com/fr/" target="_blank" class="casino-link-btn">
+                                <a href="https://cryptoleo.com/fr/" target="_blank" class="casino-link-btn-bis">
                                     <span>{{ $i18n.t('depositNow') }}</span>
                                 </a>
                             </div>
@@ -260,7 +267,7 @@
                         <v-card-text class="title-condition-casino-1">{{ $i18n.t('freeSpinConditionsText2') }}</v-card-text>
                         <v-card-actions>
                             <div class="link-casino-info-bis">
-                                <a href="https://cryptoleo.com/fr/" target="_blank" class="casino-link-btn">
+                                <a href="https://cryptoleo.com/fr/" target="_blank" class="casino-link-btn-bis">
                                     <span>{{ $i18n.t('depositNow') }}</span>
                                 </a>
                             </div>
@@ -289,7 +296,7 @@
                         <v-card-text class="title-condition-casino-1">{{ $i18n.t('fortuneWheelText2') }}</v-card-text>
                         <v-card-actions>
                             <div class="link-casino-info-bis">
-                                <a href="https://cryptoleo.com/fr/" target="_blank" class="casino-link-btn">
+                                <a href="https://cryptoleo.com/fr/" target="_blank" class="casino-link-btn-bis">
                                     <span>{{ $i18n.t('depositNow') }}</span>
                                 </a>
                             </div>
@@ -356,8 +363,8 @@ export default {
             dialog3: false,
         };
     },
-    mounted(){
-      console.log('Langue détectée:', this.$i18n.locale);
+    mounted() {
+        console.log('Langue détectée:', this.$i18n.locale);
     }
 };
 </script>
@@ -780,6 +787,11 @@ export default {
     color: #333;
 }
 
+.bonus-info-bis {
+    padding-top: 0 !important;
+
+}
+
 .bonus-row {
     margin-top: 10px;
 }
@@ -788,14 +800,14 @@ export default {
     font-weight: bold;
 }
 
-.casino-link-btn {
-    text-decoration: none;
-    padding: 10px 20px;
-    background-color: #4bcf50;
-    color: #fff;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-}
+// .casino-link-btn {
+//     text-decoration: none;
+//     padding: 10px 20px;
+//     background-color: #4bcf50;
+//     color: #fff;
+//     border-radius: 5px;
+//     transition: background-color 0.3s, color 0.3s;
+// }
 
 .casino-link-btn:hover {
     background-color: #1e9628;
@@ -809,6 +821,15 @@ export default {
     margin-left: 20px;
     margin-right: 20px;
     border: solid 1px $main !important;
+}
+
+.dividerbis {
+    // margin-left: 150px;
+    // margin-right: 150px;
+    width: 300px;
+    margin: auto ;
+    border: solid 1px $main !important;
+    border-style: dashed !important;
 }
 
 .divider-bis {
@@ -1018,10 +1039,13 @@ export default {
     z-index: 10;
     margin-top: auto;
     font-family: Kanit;
+    font-weight: bold;
 }
 
 
 .casino-link-btn {
+    color: #fff;
+    border-radius: 5px;
     font-family: Kanit;
     display: inline-block;
     text-decoration: none;
@@ -1032,11 +1056,32 @@ export default {
     transition: background-color 0.2s;
     z-index: 10;
     margin-right: 3%;
+    font-weight: bold;
 
     &:hover {
         transform: scale(1.05);
     }
 }
+
+.casino-link-btn-bis {
+    color: #fff;
+    border-radius: 5px;
+    font-family: Kanit;
+    display: inline-block;
+    text-decoration: none;
+    background-color: $main;
+    color: #fff !important;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: background-color 0.2s;
+    z-index: 10;
+    font-weight: bold;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
 
 .info-casino {
     display: flex;
@@ -1066,6 +1111,7 @@ export default {
     top: 0;
     right: 0;
     margin: 10px;
+    border:1px solid #4bcf50;
 }
 
 
