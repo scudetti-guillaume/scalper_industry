@@ -1,15 +1,22 @@
 <template>
   <v-app dark>
     <h1 v-if="error.statusCode === 404" class="text-center">
-      {{ pageNotFound }}
+      {{ $t('errors.pageNotFound') }}
     </h1>
     <h1 v-else class="text-center">
-      {{ otherError }}
+      {{ $t('errors.otherError') }}
     </h1>
     <div class="background"></div>
-    <NuxtLink to="/" class="text-center">
-      Retour à l'accueil
-    </NuxtLink>
+    <!-- <NuxtLink to="/" class="text-center">
+      {{ $t('navigation.backToHome') }}
+    </NuxtLink> -->
+    <div class="center-btn">
+      <v-btn class="btn-back">
+        <router-link to="/" class="text-center ">
+          {{ $t('navigation.backToHome') }}
+        </router-link>
+        </v-btn>
+        </div>
   </v-app>
 </template>
 
@@ -23,21 +30,16 @@ export default {
       default: null
     }
   },
-  data() {
-    return {
-      pageNotFound: "Aie il n'y a rien ici",
-      otherError: "Aie il n'y a rien ici",
-    }
-  },
   head() {
     const title =
-      this.error.statusCode === 404 ? this.pageNotFound : this.otherError
+      this.error.statusCode === 404 ? this.$t('errors.pageNotFound') : this.$t('errors.otherError');
     return {
       title
     }
   }
 }
 </script>
+
 
 <style scoped>
 h1 {
@@ -47,7 +49,24 @@ h1 {
 .text-center {
   text-align: center;
   text-decoration: none;
+    color: #39a43d;
 }
+
+.center-btn{
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+.btn-back{
+display: flex;
+justify-content: center;
+align-items: center;
+ width: 250px;
+ /* margin: auto 0; */
+
+}
+
 
 .background {
   background-image: url('../static/marco.png');

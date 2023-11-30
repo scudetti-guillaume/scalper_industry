@@ -11,24 +11,25 @@
       <v-spacer />
    <v-spacer />
       <div v-if="!isMobile" class="header-link">
+     <v-btn @click="toggleLanguage">FR/EN</v-btn>
         <v-btn class="main-link-2">
           <router-link class="main-link-2-bis" to="/">
-            <v-toolbar-title>{{ accueil }}</v-toolbar-title>
+            <v-toolbar-title>{{ $i18n.t('accueil') }}</v-toolbar-title>
           </router-link>
         </v-btn>
         <v-btn class="main-link-2">
           <a class="main-link-2-bis" target="_blank" href="https://prod.thomaslab.duckdns.org/">
-            <v-toolbar-title>{{ tournoi }}</v-toolbar-title>
+            <v-toolbar-title>{{ $i18n.t('tournoi') }}</v-toolbar-title>
           </a>
         </v-btn>
         <v-btn class="main-link-2">
           <router-link class="main-link-2-bis" to="/inspire">
-            <v-toolbar-title>{{ affiliation }}</v-toolbar-title>
+            <v-toolbar-title>{{ $i18n.t('affiliation') }}</v-toolbar-title>
           </router-link>
         </v-btn>
          <v-btn class="main-link-2">
             <router-link class="main-link-2-bis" to="/casino">
-              <v-toolbar-title>{{ casino}}</v-toolbar-title>
+              <v-toolbar-title>{{ $i18n.t('casino') }}</v-toolbar-title>
             </router-link>
           </v-btn>
      </div>
@@ -41,7 +42,7 @@
     <a class="main-link-3" href="https://www.twitch.tv/scalper_chirurgical" target="_blank">twitch</a>
   </v-btn>
   <v-btn v-if="isLive  && !isMobilebis" class="main-link-3">
-      <a class="main-link-3" href="https://www.twitch.tv/scalper_chirurgical" target="_blank"> <v-icon class="live-circle mdi mdi-circle"></v-icon>En live</a>
+      <a class="main-link-3" href="https://www.twitch.tv/scalper_chirurgical" target="_blank"> <v-icon class="live-circle">mdi-circle</v-icon>{{ $i18n.t('live') }}</a>
     </v-btn>
 
      
@@ -65,7 +66,7 @@
         </template>
           <a class="main-link-nav-link"  href='https://prod.thomaslab.duckdns.org/'  target="_blank">
       <v-icon class="main-link-nav-link-1" height="30px">mdi-tournament</v-icon>
-      <a class="main-link-nav-link-2" href="https://prod.thomaslab.duckdns.org/" target="_blank">Tournoi</a>
+      <a class="main-link-nav-link-2" href="https://prod.thomaslab.duckdns.org/" target="_blank">{{ $i18n.t('tournoi') }}</a>
            </a>
          <a class="main-link-nav-link"  href="https://www.twitch.tv/scalper_chirurgical"  target="_blank">
     <v-icon class="main-link-nav-link-1" height="30px">mdi-twitch</v-icon>
@@ -98,14 +99,10 @@
 </template>
 
 <script>
+import config from '../test2.js';
 export default {
   name: 'DefaultLayout',
   computed: {
-      isLive() {
-        return this.$store.state.isLive;
-        
-      },
- 
     isMobile() {
       if (this.$vuetify.breakpoint.smAndDown) {
         return true;
@@ -114,9 +111,12 @@ export default {
       }
     },
       isMobilebis() {
-
       return this.$vuetify.breakpoint.name === 'xs';
     },
+    // isLive() {
+    //   return this.$store.state.isLive;
+
+    // },
 
   },
   methods: {
@@ -125,6 +125,16 @@ export default {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark; // Changer le thème
       this.$store.commit('setIsDarkMode', this.isDarkMode);
     },
+      toggleLanguage() {
+      const currentLanguage = this.$i18n.locale;
+      const newLanguage = currentLanguage === 'fr' ? 'en' : 'fr';
+      this.$i18n.setLocale(newLanguage);
+      console.log('Langue changée:', newLanguage);
+    },
+    //   isLive() {
+    //   return this.$store.state.isLive;
+    // },
+    
   },
   data() {
     return {
@@ -136,40 +146,93 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
+      isLive: false,
       items: [
         {
           icon: 'mdi-apps',
-          title: 'Accueil',
+          title: this.$i18n.t('accueil'),
           to: '/'
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Affiliation',
+          title: this.$i18n.t('affiliation'),
           to: '/inspire'
         },
         {
           icon: 'mdi-slot-machine-outline',
-          title: 'Casino',
+          title: this.$i18n.t('casino'),
          to: '/casino'
         },
       ],
-      title: 'Scalper',
-      tournoi: 'Tournoi',
-      accueil: 'Accueil',
-      affiliation: 'Affiliation',
-      casino: 'Casino',
-      twitch: 'Twitch',
+      // title: 'Scalper',
+      // tournoi: 'Tournoi',
+      // accueil: 'Accueil',
+      // affiliation: 'Affiliation',
+      // casino: 'Casino',
+      // twitch: 'Twitch',
       to: '/'
     }
 
 
-  }
+  },
+    mounted() {
+    const clientID = config.clientID;
+    const clientSecret = config.clientSecret;
+    const channelName = 'Scalper_Chirurgical';
+
+
+    const url = 'https://id.twitch.tv/oauth2/token';
+    const params = new URLSearchParams();
+    params.append('client_id', clientID);
+    params.append('client_secret', clientSecret);
+    params.append('grant_type', 'client_credentials');
+
+    fetch(url, {
+      method: 'POST',
+      body: params,
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.access_token) {
+          const accessToken = data.access_token;
+          fetch(`https://api.twitch.tv/helix/streams?user_login=${channelName}`, {
+            method: 'GET',
+            headers: {
+              'Client-ID': clientID,
+              'Authorization': `Bearer ${accessToken}`,
+            },
+          })
+            .then(response => response.json())
+            .then(data => {
+              if (data.data.length > 0) {
+              console.log('Le stream est en ligne !');
+                this.isLive = true;
+                // this.$store.commit('setIsLive', this.isLive);
+              } else {
+                console.log('Le stream est horsligne !');
+                this.isLive = false;
+                // this.$store.commit('setIsLive', this.isLive);
+              }
+            })
+            .catch(error => {
+              console.error('Erreur lors de la requête à l\'API Twitch : ' + error);
+            });
+        } else {
+          console.error('Erreur lors de la récupération du jeton d\'accès.');
+        }
+      })
+      .catch(error => {
+        console.error('Erreur lors de la requête pour obtenir le jeton d\'accès : ' + error);
+      });
+    console.log('Langue détectée:', this.$i18n.locale);
+  },
   
 }
 </script>
 
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;400;500;700&display=swap');
 .main-bar {
   z-index: 100 !important;
   background: #1e1e1e !important;
@@ -185,6 +248,13 @@ export default {
   text-decoration: none;
   border: solid $main 1px !important;
   border-radius: 10px;
+  margin-bottom: 1%;
+  &:hover{
+    // transform: scale(1.05);
+  background-color: $main !important;
+    border-radius: 15px !important;
+  
+  }
   // background: white !important;
 }
 
@@ -194,13 +264,21 @@ export default {
   border: solid $main 1px !important;
   border-radius: 10px;
   text-decoration: none;
+  margin-bottom: 1%;
   &:hover {
+  //  transform: scale(1.05);
     border: solid $main 1px !important;
     border-radius: 10px;
     background-color: $main !important;
   }
   // background: white !important;
 }
+
+// .main-link-nav:hover {
+//   transform: scale(1.05);
+//   background-color: $main !important;
+//     border-radius: 10px !important;
+// }
 
 .main-link-nav-link-1{
   display: flex;
@@ -230,10 +308,7 @@ export default {
 
 }
 
-.main-link-nav:hover {
-  transform: scale(1.05);
-  background-color: $main !important;
-}
+
 
 .main-link {
   text-decoration: none;
@@ -253,32 +328,40 @@ export default {
 .main-link-2 {
   text-decoration: none !important;
   color: white !important;
-  background-color: #39a43d !important;
-  // border: solid #2e8c35 3px !important;
-  // border-radius: 10px;
+  background-color: $main !important;
   padding: 2%;
   margin-right: 4%;
-  font-family: Kanit;
+  font-family: Kanit !important;
+  // font-weight: bold;
 }
 
 .main-link-2-bis {
   text-decoration: none !important;
   color: white !important;
+  font-family:Kanit !important;
 }
 
 
 .main-link-3 {
   text-decoration: none !important;
   color: white !important;
-  background-color: #39a43d !important;
+  background-color: $main !important;
   // border: solid #2e8c35 3px !important;
   // border-radius: 10px;
   // padding: 2%;
   margin-right: 1%;
-    font-family: Kanit;
+    font-family: Kanit  !important;
+    //  font-weight: bold;
 }
 
-
+.live-circle{
+background-color:red !important;
+color: red !important;
+height: 15px !important;
+width: 15px !important;
+margin-right: 10px;
+border-radius: 50%;
+}
 
 .main-link:hover {
   text-decoration: none;
@@ -311,10 +394,6 @@ export default {
   }
 }
 
-.btn-tournoi {
-  color: blue !important;
-  background: bisque !important;
-}
 
 .social-link-x {
   display: flex;

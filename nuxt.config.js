@@ -2,6 +2,9 @@ import colors from 'vuetify/es5/util/colors'
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
+  server: {
+    host: '0.0.0.0',
+  },
   ssr: false,
   target: 'static',
   router: {
@@ -26,6 +29,7 @@ export default {
       {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;400;500;700&display=swap',
+        href: 'https://fonts.googleapis.com/css?family=Great+Vibes&display=swap',
       },
     ]
   },
@@ -46,13 +50,28 @@ export default {
   ],
 
   modules: [
+    '@nuxtjs/i18n'
   ],
+  i18n: {
+    locales: [
+      { code: 'fr', iso: 'fr-FR', file: 'fr.json' },
+      { code: 'en', iso: 'en-US', file: 'en.json' },
+    ],
+    defaultLocale: 'fr',
+    strategy: 'prefix_and_default',
+    langDir: './locales/',
+    lazy: false,
+    vueI18n: {
+      fallbackLocale: 'fr',
+    },
+  },
 
   vuetify: {
     breakpoint: {
       thresholds: {
         // xs: 600, 
-        sm: 1090, 
+        xss:405,
+        sm: 1235, 
         // md: 1280, 
         // lg: 1920,
       },

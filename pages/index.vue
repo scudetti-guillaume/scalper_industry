@@ -12,7 +12,6 @@ import presentation from '../components/presentation.vue';
 import socialnetwork from '../components/socialnetwork.vue';
 import live from '../components/live.vue';
 import banniere from '../components/banniere.vue';
-
 export default {
     name: 'IndexPage',
     components: {

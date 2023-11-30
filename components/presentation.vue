@@ -3,14 +3,14 @@
     <v-card class="card-presentation">
       <div v-if="!isMobile" class="background-left"></div>
       <v-card-title class="headline">
-        <span class="headline-bis">Tournoi de noël</span>
+        <span class="headline-bis">{{  $i18n.t('tournoiNoelTitle') }}</span>
       </v-card-title>
       <v-card-text class="cp-text">
-        <span class="cp-text-2">Cashprice 1000$</span>
+        <span class="cp-text-2">{{  $i18n.t('tournoiNoelCashPrice') }}</span>
       </v-card-text>
       <div class="link-presentation">
         <a href="https://prod.thomaslab.duckdns.org/" target="_blank" class="unlive-link">
-          <span class="cp-text-3"> s'inscrire au tournoi</span>
+          <span class="cp-text-3">{{  $i18n.t('tournoiNoelLink') }}</span>
         </a>
       </div>
       <div v-if="!isMobile" class="background-right"></div>
@@ -30,64 +30,66 @@ export default {
       return this.$store.state.isOffline;
     },
   },
-  data() {
-    return {
-      isLive: false,
-    };
+  // data() {
+  //   return {
+  //     isLive: false,
+  //   };
     
-  },
+  // },
 
 
 
-  mounted() {
+  // mounted() {
 
-    const clientID = config.clientID;
-    const clientSecret = config.clientSecret;
-    const channelName = 'Scalper_Chirurgical';
+  //   const clientID = config.clientID;
+  //   const clientSecret = config.clientSecret;
+  //   const channelName = 'Scalper_Chirurgical';
 
 
-    const url = 'https://id.twitch.tv/oauth2/token';
-    const params = new URLSearchParams();
-    params.append('client_id', clientID);
-    params.append('client_secret', clientSecret);
-    params.append('grant_type', 'client_credentials');
+  //   const url = 'https://id.twitch.tv/oauth2/token';
+  //   const params = new URLSearchParams();
+  //   params.append('client_id', clientID);
+  //   params.append('client_secret', clientSecret);
+  //   params.append('grant_type', 'client_credentials');
 
-    fetch(url, {
-      method: 'POST',
-      body: params,
-    })
-      .then(response => response.json())
-      .then(data => {
-        if (data.access_token) {
-          const accessToken = data.access_token;
-          fetch(`https://api.twitch.tv/helix/streams?user_login=${channelName}`, {
-            method: 'GET',
-            headers: {
-              'Client-ID': clientID,
-              'Authorization': `Bearer ${accessToken}`,
-            },
-          })
-            .then(response => response.json())
-            .then(data => {
-              if (data.data.length > 0) {
-                this.isLive = true;
-                this.$store.commit('setIsLive', this.isLive);
-              } else {
-                this.isLive = false;
-                this.$store.commit('setIsLive', this.isLive);
-              }
-            })
-            .catch(error => {
-              console.error('Erreur lors de la requête à l\'API Twitch : ' + error);
-            });
-        } else {
-          console.error('Erreur lors de la récupération du jeton d\'accès.');
-        }
-      })
-      .catch(error => {
-        console.error('Erreur lors de la requête pour obtenir le jeton d\'accès : ' + error);
-      });
-  },
+  //   fetch(url, {
+  //     method: 'POST',
+  //     body: params,
+  //   })
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       if (data.access_token) {
+  //         const accessToken = data.access_token;
+  //         fetch(`https://api.twitch.tv/helix/streams?user_login=${channelName}`, {
+  //           method: 'GET',
+  //           headers: {
+  //             'Client-ID': clientID,
+  //             'Authorization': `Bearer ${accessToken}`,
+  //           },
+  //         })
+  //           .then(response => response.json())
+  //           .then(data => {
+  //             if (data.data.length > 0) {
+  //               this.isLive = true;
+  //               console.log('Le stream est en ligne !');
+  //               this.$store.commit('setIsLive', this.isLive);
+  //             } else {
+  //              console.log('Le stream est horsligne !');
+  //               this.isLive = false;
+  //               this.$store.commit('setIsLive', this.isLive);
+  //             }
+  //           })
+  //           .catch(error => {
+  //             console.error('Erreur lors de la requête à l\'API Twitch : ' + error);
+  //           });
+  //       } else {
+  //         console.error('Erreur lors de la récupération du jeton d\'accès.');
+  //       }
+  //     })
+  //     .catch(error => {
+  //       console.error('Erreur lors de la requête pour obtenir le jeton d\'accès : ' + error);
+  //     });
+  // },
 };
 </script>
 
@@ -125,7 +127,7 @@ export default {
 }
 
 .headline-bis{
-  font-family: 'Great Vibes',cursive !important;
+  font-family: Great Vibes,cursive !important;
   font-size: 2.8rem;
   margin-top: 1%;
 }
@@ -183,7 +185,7 @@ font-size: 1.4em;
   align-items: center;
   width: 250px;
   z-index: 10;
-  // margin-bottom: 1%;
+  margin-bottom: 0.5%;
 }
 
 .link-live-presentation {
@@ -310,7 +312,7 @@ font-size: 1.4em;
   width: 50%;
   /* Ajustez la largeur selon vos besoins */
   height: 100%;
-  background-image: url('../static/left.svg');
+  background-image: url('../static/beer.png');
   /* Chemin de l'image pour l'arrière-plan à gauche */
   background-size: contain;
   /* Ajustez selon le dimensionnement souhaité */
