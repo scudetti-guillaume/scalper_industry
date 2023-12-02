@@ -8,15 +8,15 @@ export default {
   ssr: false,
   target: 'static',
   router: {
-    // base: '/' ,
-    base: '/scalper-final/' 
+    base: '/' ,
+    // base: '/scalper-final/' ,
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: 'scalper_v2',
-    title: 'scalper_v2',
+    titleTemplate: 'scalperchirurgical.com',
+    title: 'scalperchirurgical.com',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'fr'
     },
     meta: [
       { charset: 'utf-8' },
@@ -29,6 +29,9 @@ export default {
       {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;400;500;700&display=swap',
+      },
+      {
+        rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css?family=Great+Vibes&display=swap',
       },
     ]
@@ -63,6 +66,11 @@ export default {
     lazy: false,
     vueI18n: {
       fallbackLocale: 'fr',
+    },
+    detectBrowserLanguage: {
+      useCookie: true, // Utilisez un cookie pour stocker la langue détectée
+      alwaysRedirect: false, // Rediriger toujours vers la version détectée
+      fallbackLocale: 'fr', // Langue par défaut en cas de détection échouée
     },
   },
 

@@ -5,7 +5,8 @@
     </div>
     <div class="card-link-affi-main">
       <a v-for="(carte, index) in cartes" :key="index" :href="carte.lien" target="_blank" class="card-link-affi">
-        <v-card class="card-social-affi" :style="{ backgroundImage: `url(${carte.backgroundImage})` }">
+        <v-card class="card-social-affi" :style="{ backgroundImage: `url(${carte.backgroundImage.src})` }">
+         <img :src="carte.backgroundImage.src" :alt="carte.backgroundImage.alt" class="visually-hidden" />
           <div class="card-content-affi">
             <v-card-actions class="cc-detail-title">{{ $i18n.t(`carte${index + 1}Title`) }}</v-card-actions>
             <v-card-text class="cc-detail-title-2">{{ $i18n.t(`carte${index + 1}Description`) }}</v-card-text>
@@ -33,40 +34,58 @@ export default {
           description: 'Fond de recouvrement 300 millions en cas de hack de votre compte.',
           texteDuLien: 'Preuve de réserve ratio x2.5',
           lien: 'https://www.bitget.com/expressly?channelCode=hete&vipCode=9k3f&languageType=0',
-          backgroundImage: 'bitget.png',
+          backgroundImage: {
+            src: 'bitget.png',
+            alt: 'logo bitget', // Ajoutez une description appropriée ici
+          },
         },
         {
           titre: '0 %  Frais de maker et de taker en spot',
           description: '',
           texteDuLien: '0 % Frais de maker en future, frais de taker en future  0,01 %      ',
-          lien: '',
-          backgroundImage: 'mexc.png',
+          lien: 'https://www.mexc.com/en-US/register?inviteCode=mexc-1XEGq',
+            backgroundImage: {
+            src: 'mexc.png',
+            alt: 'logo mexc', // Ajoutez une description appropriée ici
+          },
         },
         {
           titre: 'Terminal de trading gratuit',
           description: '- raccourcis - scale ',
           texteDuLien: '- plusieurs API ',
           lien: 'https://app.tealstreet.io/chirurgical',
-          backgroundImage: 'tealstreet.png',
+           backgroundImage: {
+            src: 'tealstreet.png',
+            alt: 'logo tealstreet', // Ajoutez une description appropriée ici
+          },
         },
         {
           titre: '',
           description: '',
           texteDuLien: '',
-          lien: 'https://app.tealstreet.io/chirurgical',
-          backgroundImage: 'BYBIT_1.png',
+          lien: 'https://www.bybit.com/fr-FR/invite?ref=B6GNPN',
+             backgroundImage: {
+            src: 'BYBIT_1.png',
+            alt: 'logo bybit', // Ajoutez une description appropriée ici
+          },
         },
         {
           titre: '',
           description: '',
           texteDuLien: '',
-          lien: 'https://app.tealstreet.io/chirurgical',
-          backgroundImage: 'Kingfisher.png',
+          lien: 'https://thekingfisher.io/?ref=Qfvgg99Q',
+          backgroundImage: {
+            src: 'Kingfisher.png',
+            alt: 'logo Kingfisher', // Ajoutez une description appropriée ici
+          },
         },
         {
           titre: `Cadeau de bienvenue jusqu'à 5125 USDT`,
-          lien: 'https://app.tealstreet.io/chirurgical',
-          backgroundImage: 'Bingx.png',
+          lien: 'https://bingx.com/fr-fr/invite/MGEMBI7RQ/',
+           backgroundImage: {
+            src: 'Bingx.png',
+            alt: 'logo Bingx', // Ajoutez une description appropriée ici
+          },
         },
       ],
     };
@@ -101,6 +120,17 @@ export default {
   @media (max-width: 425px){
      justify-content:center;
   }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 .card-social-affi {

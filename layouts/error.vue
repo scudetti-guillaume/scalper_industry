@@ -49,7 +49,7 @@ h1 {
 .text-center {
   text-align: center;
   text-decoration: none;
-    color: #39a43d;
+    color:#39a43d;
 }
 
 .center-btn{

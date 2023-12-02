@@ -3,162 +3,11 @@
         <div class="banniere-affi-casino">
             <bannierecasino></bannierecasino>
         </div>
-        <!-- ///////////////////// V1 /////////////////////////////////////////// -->
-        <!-- <v-card class="card-leo">
-        <a class="card-main-logo" href="https://cryptoleo.com/fr/" target="_blank"></a>
-        <v-card-title>{{ $t('leoReviewTitle') }}</v-card-title>
-        <v-card-text class="card-avis">
-            <p>{{ $t('leoReviewContent1') }}</p>
-            <p>{{ $t('leoReviewContent2') }}</p>
-            <p>{{ $t('leoReviewContent3') }}</p>
-        </v-card-text>
-        <v-card-title class="tilte-bonus">{{ $t('welcomeBonusTitle') }}</v-card-title>
-        <v-card-text class="card-leo-text-1"><span class="card-leo-text-1-bis"><span class="card-leo-text-1-150">{{ $t('bonusPercentage') }}&nbsp</span>{{ $t('upTo') }}</span></v-card-text>
-        <v-card-text class="card-leo-text-1">{{ $t('wager') }} </v-card-text>
-        <v-card-text class="card-leo-text-1">{{ $t('minDeposit') }} </v-card-text>
-        <v-card-text class="card-leo-text-1">{{ $t('maxBet') }}</v-card-text>
-        <v-card-text class="card-leo-text-2">{{ $t('wagerPeriod') }}</v-card-text>
-        <div class="link-casino-main">
-            <a href="https://cryptoleo.com/fr/" target="_blank" class="casino-link-btn">
-                <span>{{ $t('claimBonus') }}</span>
-            </a>
-        </div>
-    </v-card> -->
-
-        <!-- ///////////////////// V2 /////////////////////////////////////////// -->
-
-        <!-- <v-card class="card-leo">
-        <a class="card-main-logo" href="https://cryptoleo.com/fr/" target="_blank"></a>
-        <v-card-title class="review-title">{{ $t('leoReviewTitle') }}</v-card-title>
-        <v-card-text class="card-avis">
-          <p>{{ $t('leoReviewContent1') }}</p>
-          <p>{{ $t('leoReviewContent2') }}</p>
-          <p>{{ $t('leoReviewContent3') }}</p>
-        </v-card-text>
-        <v-card-title class="bonus-title">{{ $t('welcomeBonusTitle') }}</v-card-title>
-        <div class="bonus-details">
-          <v-card-text class="bonus-text">
-            <span class="bonus-percentage">{{ $t('bonusPercentage') }}&nbsp;</span>{{ $t('upTo') }}
-          </v-card-text>
-          <v-card-text class="bonus-text">{{ $t('wager') }}</v-card-text>
-          <v-card-text class="bonus-text">{{ $t('minDeposit') }}</v-card-text>
-          <v-card-text class="bonus-text">{{ $t('maxBet') }}</v-card-text>
-          <v-card-text class="bonus-text">{{ $t('wagerPeriod') }}</v-card-text>
-        </div>
-        <div class="link-casino-main">
-          <a href="https://cryptoleo.com/fr/" target="_blank" class="casino-link-btn">
-            <span>{{ $t('claimBonus') }}</span>
-          </a>
-        </div>
-      </v-card> -->
-
-        <!-- ///////////////////// V3 /////////////////////////////////////////// -->
-        <!-- <v-card class="modern-card">
-        <a class="card-main-logo" href="https://cryptoleo.com/fr/" target="_blank"></a>
-        <v-divider class="divider"></v-divider>
-        <v-card-title class="card-title">{{ $t('leoReviewTitle') }}</v-card-title>
-        <v-card-text class="card-avis">
-          <p>{{ $t('leoReviewContent1') }}</p>
-          <p>{{ $t('leoReviewContent2') }}</p>
-          <p>{{ $t('leoReviewContent3') }}</p>
-        </v-card-text>
-        <v-divider class="divider"></v-divider>
-        <v-card-title class="bonus-title">{{ $t('welcomeBonusTitle') }}</v-card-title>
-        <div class="bonus-details">
-          <v-card-text class="bonus-text">
-            <span class="bonus-percentage">{{ $t('bonusPercentage') }}&nbsp;</span>{{ $t('upTo') }}
-          </v-card-text>
-          <v-card-text class="bonus-text">{{ $t('wager') }}</v-card-text>
-          <v-card-text class="bonus-text">{{ $t('minDeposit') }}</v-card-text>
-          <v-card-text class="bonus-text">{{ $t('maxBet') }}</v-card-text>
-          <v-card-text class="wager-period">{{ $t('wagerPeriod') }}</v-card-text>
-        </div>
-        <v-divider class="divider"></v-divider>
-        <div class="link-casino-main">
-          <a href="https://cryptoleo.com/fr/" target="_blank" class="casino-link-btn">
-            <span>{{ $t('claimBonus') }}</span>
-          </a>
-        </div>
-      </v-card> -->
-
-        <!-- ///////////////////// V4 /////////////////////////////////////////// -->
-
-        <!-- <v-card class="custom-card">
-        <a class="card-main-logo" href="https://cryptoleo.com/fr/" target="_blank"></a>
-        <v-card-title>{{ $t('leoReviewTitle') }}</v-card-title>
-        <v-card-text class="card-avis">
-          <p>{{ $t('leoReviewContent1') }}</p>
-          <p>{{ $t('leoReviewContent2') }}</p>
-          <p>{{ $t('leoReviewContent3') }}</p>
-        </v-card-text>
-        <v-card-title class="tilte-bonus">{{ $t('welcomeBonusTitle') }}</v-card-title>
-        <v-card-text class="bonus-details">
-          <div class="bonus-row">
-            <div class="bonus-label">{{ $t('bonusPercentage') }}</div>
-            <div class="bonus-value">{{ $t('upTo') }}</div>
-          </div>
-          <div class="bonus-row">
-            <div class="bonus-label">{{ $t('wager') }}</div>
-            <div class="bonus-value">{{ $t('minDeposit') }}</div>
-          </div>
-          <div class="bonus-row">
-            <div class="bonus-label">{{ $t('maxBet') }}</div>
-        </div>
-          <div class="bonus-row">
-        <div class="bonus-label">{{ $t('wagerPeriod') }}</div>
-        </div>
-        </v-card-text>
-        <div class="link-casino-main">
-          <a href="https://cryptoleo.com/fr/" target="_blank" class="casino-link-btn">
-            <span>{{ $t('claimBonus') }}</span>
-          </a>
-        </div>
-      </v-card> -->
-
-
-        <!-- ///////////////////// V5 sobre /////////////////////////////////////////// -->
-        <!-- <v-card class="unique-card">
-        <a class="card-main-logo" href="https://cryptoleo.com/fr/" target="_blank"></a>
-        <v-card-title class="uc-title">{{ $t('leoReviewTitle') }}</v-card-title>
-        <v-card-text class="card-avis">
-          <p>{{ $t('leoReviewContent1') }}</p>
-          <p>{{ $t('leoReviewContent2') }}</p>
-          <p>{{ $t('leoReviewContent3') }}</p>
-        </v-card-text>
-         <v-divider class="divider"></v-divider>
-        <v-card-title class="tilte-bonus">{{ $t('welcomeBonusTitle') }}</v-card-title>
-        <v-card-text class="bonus-info">
-          <div class="bonus-row">
-            <div class="bonus-label">{{ $t('bonusPercentage') }} {{ $t('upTo') }}</div>
-          </div>
-          <div class="bonus-row">
-            <div class="bonus-label">{{ $t('wager') }} </div>
-          </div>
-          <div class="bonus-row">
-            <div class="bonus-label">{{ $t('minDeposit') }}</div>
-          </div>
-          <div class="bonus-row">
-            <div class="bonus-label">{{ $t('maxBet') }} </div>
-          </div>
-          <div class="bonus-row">
-            <div class="bonus-label">{{ $t('wagerPeriod') }}</div>
-          </div>
-        </v-card-text>
-        <v-divider class="divider"></v-divider>
-        <div class="link-section">
-          <div class="link-casino-main">
-            <a href="https://cryptoleo.com/fr/" target="_blank" class="casino-link-btn">
-              <span>{{ $t('claimBonus') }}</span>
-            </a>
-          </div>
-        </div>
-      </v-card> -->
-
-        <!-- ///////////////////// V6 /////////////////////////////////////////// -->
 
         <v-card class="unique-card">
             <div class="card-header">
-                <a class="card-main-logo" href="https://cryptoleo.com/fr/" target="_blank"></a>
+                <a class="card-main-logo" href="https://cryptoleo7.com/fr/?cxd=42807_961319&bta=42807&nci=5791#register"
+                    target="_blank"> <span class="sr-only">Logo de cryptoleo</span></a>
             </div>
             <v-divider></v-divider>
             <v-card-title class="uc-title">{{ $i18n.t('leoReviewTitle') }}</v-card-title>
@@ -196,22 +45,25 @@
             <v-divider class="divider"></v-divider>
             <div class="link-section">
                 <div class="link-casino-main">
-                    <a href="https://cryptoleo.com/fr/" target="_blank" class="casino-link-btn-bis">
+                    <a href="https://cryptoleo7.com/fr/?cxd=42807_961319&bta=42807&nci=5791#register" target="_blank"
+                        class="casino-link-btn-bis">
                         <span>{{ $i18n.t('claimBonus') }}</span>
                     </a>
                 </div>
             </div>
         </v-card>
 
-        <!-- //////////////////////////////////////////////////////////////// -->
-
         <div class="card-container">
             <v-card class="card-casino-1">
+                <div class="background-description" role="presentation">
+                    logo casino
+                </div>
                 <v-card-title class="headline-casino">{{ $i18n.t('cashbackTitle') }}</v-card-title>
                 <v-card-text class="headline-casino-bis" @click="openModal">{{ $i18n.t('cashbackConditions')
                 }}</v-card-text>
                 <div class="link-casino-info">
-                    <a href="https://cryptoleo.com/fr/" target="_blank" class="casino-link-btn">
+                    <a href="https://cryptoleo7.com/fr/?cxd=42807_961319&bta=42807&nci=5791#register" target="_blank"
+                        class="casino-link-btn">
                         <span>{{ $i18n.t('depositNow') }}</span>
                     </a>
                     <div class="info-casino" @click="openModal(1)"><span class="info-casino-i">i</span></div>
@@ -237,21 +89,25 @@
                         </v-card-text>
                         <v-card-actions>
                             <div class="link-casino-info-bis">
-                                <a href="https://cryptoleo.com/fr/" target="_blank" class="casino-link-btn-bis">
+                                <a href="https://cryptoleo7.com/fr/?cxd=42807_961319&bta=42807&nci=5791#register"
+                                    target="_blank" class="casino-link-btn-bis">
                                     <span>{{ $i18n.t('depositNow') }}</span>
                                 </a>
                             </div>
-                            <!-- <v-btn @click="closeModal(2)">{{ $i18n.t('closeButton') }}</v-btn> -->
                         </v-card-actions>
                     </v-card>
                 </v-dialog>
-
             </v-card>
+
             <v-card class="card-casino-2">
+              <div class="background-description" role="presentation">
+                        logo casino
+                    </div>
                 <v-card-title class="headline-casino">{{ $i18n.t('freeSpinTitle') }}</v-card-title>
                 <v-card-text class="headline-casino">{{ $i18n.t('freeSpinConditions') }}</v-card-text>
                 <div class="link-casino-info">
-                    <a href="https://cryptoleo.com/fr/" target="_blank" class="casino-link-btn">
+                    <a href="https://cryptoleo7.com/fr/?cxd=42807_961319&bta=42807&nci=5791#register" target="_blank"
+                        class="casino-link-btn">
                         <span>{{ $i18n.t('depositNow') }}</span>
                     </a>
                     <div class="info-casino" @click="openModal(2)"><span class="info-casino-i">i</span></div>
@@ -267,7 +123,8 @@
                         <v-card-text class="title-condition-casino-1">{{ $i18n.t('freeSpinConditionsText2') }}</v-card-text>
                         <v-card-actions>
                             <div class="link-casino-info-bis">
-                                <a href="https://cryptoleo.com/fr/" target="_blank" class="casino-link-btn-bis">
+                                <a href="https://cryptoleo7.com/fr/?cxd=42807_961319&bta=42807&nci=5791#register"
+                                    target="_blank" class="casino-link-btn-bis">
                                     <span>{{ $i18n.t('depositNow') }}</span>
                                 </a>
                             </div>
@@ -277,10 +134,14 @@
                 </v-dialog>
             </v-card>
             <v-card class="card-casino-3">
+              <div class="background-description" role="presentation">
+                        logo casino
+                    </div>
                 <v-card-title class="headline-casino">{{ $i18n.t('fortuneWheelTitle') }}</v-card-title>
                 <v-card-text class="headline-casino">{{ $i18n.t('fortuneWheelConditions') }}</v-card-text>
                 <div class="link-casino-info">
-                    <a href="https://cryptoleo.com/fr/" target="_blank" class="casino-link-btn">
+                    <a href="https://cryptoleo7.com/fr/?cxd=42807_961319&bta=42807&nci=5791#register" target="_blank"
+                        class="casino-link-btn">
                         <span>{{ $i18n.t('depositNow') }}</span>
                     </a>
                     <div class="info-casino" @click="openModal(3)"><span class="info-casino-i">i</span></div>
@@ -296,7 +157,8 @@
                         <v-card-text class="title-condition-casino-1">{{ $i18n.t('fortuneWheelText2') }}</v-card-text>
                         <v-card-actions>
                             <div class="link-casino-info-bis">
-                                <a href="https://cryptoleo.com/fr/" target="_blank" class="casino-link-btn-bis">
+                                <a href="https://cryptoleo7.com/fr/?cxd=42807_961319&bta=42807&nci=5791#register"
+                                    target="_blank" class="casino-link-btn-bis">
                                     <span>{{ $i18n.t('depositNow') }}</span>
                                 </a>
                             </div>
@@ -363,9 +225,9 @@ export default {
             dialog3: false,
         };
     },
-    mounted() {
-        console.log('Langue détectée:', this.$i18n.locale);
-    }
+    // mounted() {
+    //     console.log('Langue détectée:', this.$i18n.locale);
+    // }
 };
 </script>
 
@@ -395,352 +257,18 @@ export default {
     margin-bottom: 2%;
     padding-top: 2%;
     margin-right: 0;
-
-    // &:hover {
-    //     transform: scale(1.05);
-    //     //   background-color: #1e1e1e;
-    //     cursor: pointer;
-    // }
-
-    // @media (max-width: 1265px) {
-    //     width: 60% !important;
-    // }
-
-    // @media (max-width: 866px) {
-    //     width: 80% !important;
-    // }
-
-    // @media (max-width: 610px) {
-    //     width: 100% !important;
-    // }
 }
 
-///////////////////// V1 ///////////////////////////////////////////
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
 
-// .card-leo {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-//     width: 530px;
-//     margin-bottom: 3%;
-//     border-radius: 10px !important;
-// }
-
-// .card-avis{
-// text-align: center;
-// }
-
-
-// .tilte-bonus {
-//     color: #4bcf50 !important;
-//     font-size: 1.8rem !important;
-
-// }
-
-// .card-leo-text-1 {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     // border-bottom: #39a43d solid 0.5px !important;
-//     border-top: #184519 solid 0.2px !important;
-// }
-
-// .card-leo-text-1-bis {
-//     padding-top: 3%;
-// }
-
-// .card-leo-text-1-150{
-// font-size: 1.1rem;
-// }
-
-// .card-leo-text-2 {
-//     padding-top: 3%;
-//     padding-bottom: 3%;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     border-bottom: #184519 solid 0.5px !important;
-//     border-top: #184519 solid 0.5px !important;
-//     margin-bottom: 2%;
-// }
-
-// .link-casino-main {
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: center;
-//     align-items: left;
-//     width: 250px;
-//     z-index: 10;
-//     margin-top: auto;
-//     padding-left: 3%;
-//     font-family: Kanit;
-//     margin-bottom: 2%;
-// }
-
-////////////////////////// V2 //////////////////////////////////////
-
-// .card-leo {
-//   flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-//     width: 530px;
-//     margin-bottom: 3%;
-//     border-radius: 10px !important;
-//   background: linear-gradient(to right, #7f5a83, #0d324d);
-//   color: white;
-//   text-align: center;
-//   padding: 20px;
-//   border-radius: 15px;
-//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-// }
-
-// .review-title, .bonus-title {
-// display: flex;
-// justify-content: center;
-// text-align: center;
-//   font-size: 2rem;
-//   color: #4bcf50;
-//   margin-bottom: 10px;
-// }
-
-// .card-avis {
-//   margin-bottom: 20px;
-// }
-
-// .bonus-details {
-//   display: flex;
-//   flex-direction: column;
-//   gap: 10px;
-// }
-
-// .bonus-text, .wager-period {
-//   font-size: 1.2rem;
-// }
-
-// .bonus-percentage {
-//   font-size: 1.5rem;
-// }
-
-// .link-casino-main {
-//   margin-top: 20px;
-// }
-
-// .casino-link-btn {
-//   background-color: #4bcf50;
-//   color: white;
-//   padding: 10px 20px;
-//   border-radius: 5px;
-//   text-decoration: none;
-//   cursor: pointer;
-//   transition: background-color 0.3s ease;
-// }
-
-// .casino-link-btn:hover {
-//   background-color: #3ca43d;
-// }
-
-///////////////////////////V3 meilleur /////////////////////////////////////
-
-// .modern-card {
-//  width: 530px;
-//     margin-bottom: 3%;
-//     border-radius: 10px !important;
-//   background-color: #f5f5f5;
-//   color: #333;
-//   text-align: center;
-//   padding: 20px;
-//   border-radius: 10px;
-//   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-// }
-
-// .card-title, .bonus-title {
-// display: flex;
-// justify-content: center;
-// align-items: center;
-//   font-size: 1.8rem;
-//   color: #4bcf50;
-//   margin-bottom: 10px;
-// }
-
-// .card-avis {
-//   margin-bottom: 20px;
-// }
-
-// .divider {
-//   margin: 20px 0;
-//  border-top: 1px solid #4bcf50 !important; 
-// }
-
-// .bonus-details {
-//   display: flex;
-//   justify-content: space-evenly;
-//   flex-direction: column;
-// }
-
-// .bonus-text, .wager-period {
-//      font-weight: bold;
-// }
-
-// .bonus-percentage {
-//   font-size: 1.2rem;
-// }
-
-// .link-casino-main {
-//   margin-top: 20px;
-// }
-
-// .casino-link-btn {
-//   background-color: #4bcf50;
-//   color: white;
-//   padding: 10px 20px;
-//   border-radius: 5px;
-//   text-decoration: none;
-//   cursor: pointer;
-//   transition: background-color 0.3s ease;
-// }
-
-// .casino-link-btn:hover {
-//   background-color: #3ca43d;
-// }
-
-
-//////////////////////////////////////////////////////////////// -
-
-// .casino-link-btn {
-//   border:1px solid #4bcf50;
-//   color: $main;
-//   transition: background-color 0.3s, color 0.3s;
-// }
-
-// .casino-link-btn:hover {
-//   background-color: #4bcf50;
-//   color: #fff;
-// }
-
-////////////////////////////V4//////////////////////////////////// -
-//   .custom-card {
-//   width: 400px;
-//   margin: 20px;
-//   padding: 16px;
-//   border-radius: 10px;
-//   box-shadow: 0px 0px 10px 0px #000000;
-// }
-
-// .card-avis {
-//   text-align: center;
-//   margin-bottom: 20px;
-// }
-
-// .tilte-bonus {
-//   color: #4bcf50 !important;
-//   font-size: 1.5rem !important;
-//   margin-top: 20px;
-// }
-
-// .bonus-details {
-//   display: flex;
-//   flex-direction: column;
-// }
-
-// .bonus-row {
-//   display: flex;
-//   justify-content: space-between;
-//   margin-bottom: 8px;
-// }
-
-// .bonus-label {
-//   color: #4bcf50;
-// }
-
-// .bonus-value {
-//   font-weight: bold;
-// }
-
-// .link-casino-main {
-//   margin-top: 20px;
-// }
-
-// .casino-link-btn {
-//   text-decoration: none;
-//   padding: 10px 20px;
-//   border: 2px solid #4bcf50;
-//   color: #4bcf50;
-//   border-radius: 5px;
-//   transition: background-color 0.3s, color 0.3s;
-// }
-
-// .casino-link-btn:hover {
-//   background-color: #4bcf50;
-//   color: #fff;
-// }
-
-////////////////////////////V5 sobre //////////////////////////////////// -
-// .unique-card {
-//   max-width: 600px;
-//   margin: 20px;
-//   border-radius: 15px;
-//   box-shadow: 0px 0px 15px 0px #000000;
-//   background-color: #0e0e0e;
-//   color: #fff;
-//   text-align: center;
-// }
-
-// .uc-title {
-// color: $main;
-// display: flex;
-// align-items: center;
-// justify-content: center;
-//   font-size: 2rem;
-//   margin-top: 10px;
-//   margin-bottom: 2%;
-// }
-
-// .card-avis {
-//   text-align: justify;
-//   margin-top: -10px;
-// }
-
-// .tilte-bonus {
-// color: $main;
-// display: flex;
-// align-items: center;
-// justify-content: center;
-//   font-size: 1.5rem;
-// //   margin-top: 20px;
-// }
-
-// .bonus-row {
-//   margin-top: 10px;
-// }
-
-// .bonus-label {
-//   font-weight: bold;
-// }
-
-// .casino-link-btn {
-// font-family: Kanit;
-//   text-decoration: none;
-//   padding: 10px 20px;
-//   background-color: #4bcf50;
-//   color: #fff;
-//   border-radius: 5px;
-//   transition: background-color 0.3s, color 0.3s;
-// }
-
-// .casino-link-btn:hover {
-//   background-color: #1e9628;
-// }
-
-// .link-section {
-//   padding: 20px;
-// }
-
-// .divider{
-// border: solid 1px $main !important;
-// }
-
-////////////////////////////V6 //////////////////////////////////// -
 .unique-card {
     max-width: 600px;
     margin-bottom: 20px;
@@ -827,7 +355,7 @@ export default {
     // margin-left: 150px;
     // margin-right: 150px;
     width: 300px;
-    margin: auto ;
+    margin: auto;
     border: solid 1px $main !important;
     border-style: dashed !important;
 }
@@ -872,6 +400,18 @@ export default {
     }
 
 }
+
+
+.background-description {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
 
 .card-casino-2 {
     background: url('../static/leofreespin.png') right center no-repeat;
@@ -1111,7 +651,7 @@ export default {
     top: 0;
     right: 0;
     margin: 10px;
-    border:1px solid #4bcf50;
+    border: 1px solid #4bcf50;
 }
 
 
@@ -1214,7 +754,7 @@ export default {
 
 .link-info-casino {
     text-decoration: none !important;
-    color: #39a43d !important;
+    color: $main !important;
     font-size: 1.2rem;
 
     &:hover {
@@ -1227,7 +767,7 @@ export default {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: #39a43d solid 1px !important;
+    border: $main solid 1px !important;
     border-radius: 10px !important;
     max-width: 600px !important;
 }

@@ -11,25 +11,24 @@
       <v-spacer />
    <v-spacer />
       <div v-if="!isMobile" class="header-link">
-     <v-btn @click="toggleLanguage">FR/EN</v-btn>
         <v-btn class="main-link-2">
           <router-link class="main-link-2-bis" to="/">
-            <v-toolbar-title>{{ $i18n.t('accueil') }}</v-toolbar-title>
+            <v-toolbar-title class="ml-2">{{ $i18n.t('accueil') }}</v-toolbar-title>
           </router-link>
         </v-btn>
         <v-btn class="main-link-2">
-          <a class="main-link-2-bis" target="_blank" href="https://prod.thomaslab.duckdns.org/">
-            <v-toolbar-title>{{ $i18n.t('tournoi') }}</v-toolbar-title>
+          <a class="main-link-2-bis" target="_blank" href="https://tournoi.scalperchirurgical.com">
+            <v-toolbar-title class="ml-2">{{ $i18n.t('tournoi') }}</v-toolbar-title>
           </a>
         </v-btn>
         <v-btn class="main-link-2">
-          <router-link class="main-link-2-bis" to="/inspire">
-            <v-toolbar-title>{{ $i18n.t('affiliation') }}</v-toolbar-title>
+          <router-link class="main-link-2-bis" to="/affiliation">
+            <v-toolbar-title class="ml-2">{{ $i18n.t('affiliation') }}</v-toolbar-title>
           </router-link>
         </v-btn>
          <v-btn class="main-link-2">
             <router-link class="main-link-2-bis" to="/casino">
-              <v-toolbar-title>{{ $i18n.t('casino') }}</v-toolbar-title>
+              <v-toolbar-title class="ml-2">{{ $i18n.t('casino') }}</v-toolbar-title>
             </router-link>
           </v-btn>
      </div>
@@ -64,9 +63,9 @@
             </v-list-item>
           </router-link>
         </template>
-          <a class="main-link-nav-link"  href='https://prod.thomaslab.duckdns.org/'  target="_blank">
+          <a class="main-link-nav-link"  href='https://tournoi.scalperchirurgical.com'  target="_blank">
       <v-icon class="main-link-nav-link-1" height="30px">mdi-tournament</v-icon>
-      <a class="main-link-nav-link-2" href="https://prod.thomaslab.duckdns.org/" target="_blank">{{ $i18n.t('tournoi') }}</a>
+      <a class="main-link-nav-link-2" href="https://tournoi.scalperchirurgical.com" target="_blank">{{ $i18n.t('tournoi') }}</a>
            </a>
          <a class="main-link-nav-link"  href="https://www.twitch.tv/scalper_chirurgical"  target="_blank">
     <v-icon class="main-link-nav-link-1" height="30px">mdi-twitch</v-icon>
@@ -85,13 +84,21 @@
       </v-container>
     </v-main>
 
-    <v-footer :absolute="!fixed" app class="footer">
+   <v-footer :absolute="!fixed" app class="footer">
       <a href="https://twitter.com/ScalperC" target="_blank" class="social-link-x">
-        <img src="x.png" width="20" height="20" alt="Twitter Logo" class="social-link-icone" />Contact
+        <img src="x.png" width="20" height="20" alt="Twitter Logo" class="social-link-icone" /> Contact
       </a>
       <a href="https://www.twitch.tv/scalper_chirurgical" target="_blank" class="social-link">
         <v-icon>mdi-twitch</v-icon> Twitch
       </a>
+      <!-- <div class="flag">
+       <a @click="toggleLanguage('fr')" class="language-link">
+        <img src="france.png" width="20" height="20" alt="French Flag" class="language-flag" />
+      </a>
+      <a @click="toggleLanguage('en')" class="language-link">
+        <img src="united-kingdom.png" width="20" height="20" alt="English Flag" class="language-flag" />
+      </a>
+      </div> -->
       <v-spacer />
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
@@ -129,7 +136,7 @@ export default {
       const currentLanguage = this.$i18n.locale;
       const newLanguage = currentLanguage === 'fr' ? 'en' : 'fr';
       this.$i18n.setLocale(newLanguage);
-      console.log('Langue changée:', newLanguage);
+      // console.log('Langue changée:', newLanguage);
     },
     //   isLive() {
     //   return this.$store.state.isLive;
@@ -156,7 +163,7 @@ export default {
         {
           icon: 'mdi-chart-bubble',
           title: this.$i18n.t('affiliation'),
-          to: '/inspire'
+          to: '/affiliation'
         },
         {
           icon: 'mdi-slot-machine-outline',
@@ -205,11 +212,11 @@ export default {
             .then(response => response.json())
             .then(data => {
               if (data.data.length > 0) {
-              console.log('Le stream est en ligne !');
+              // console.log('Le stream est en ligne !');
                 this.isLive = true;
                 // this.$store.commit('setIsLive', this.isLive);
               } else {
-                console.log('Le stream est horsligne !');
+                // console.log('Le stream est horsligne !');
                 this.isLive = false;
                 // this.$store.commit('setIsLive', this.isLive);
               }
@@ -224,7 +231,7 @@ export default {
       .catch(error => {
         console.error('Erreur lors de la requête pour obtenir le jeton d\'accès : ' + error);
       });
-    console.log('Langue détectée:', this.$i18n.locale);
+    // console.log('Langue détectée:', this.$i18n.locale);
   },
   
 }
@@ -332,7 +339,6 @@ export default {
   padding: 2%;
   margin-right: 4%;
   font-family: Kanit !important;
-  // font-weight: bold;
 }
 
 .main-link-2-bis {
@@ -341,6 +347,9 @@ export default {
   font-family:Kanit !important;
 }
 
+.ml-2{
+  font-size: 1rem !important;
+}
 
 .main-link-3 {
   text-decoration: none !important;
@@ -403,6 +412,21 @@ border-radius: 50%;
   color: white !important;
   margin: 0 10px;
 }
+
+.flag{
+display: flex;
+flex-direction: row;
+width: 75px;
+justify-content: space-around;
+margin-left: 1%;
+}
+
+
+.language-link{
+margin-right: 1%;
+
+}
+
 
 .social-link {
   text-decoration: none;

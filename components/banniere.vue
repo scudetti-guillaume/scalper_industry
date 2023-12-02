@@ -3,7 +3,9 @@
     <div class="card-banniere" >
       <v-card-title class="headline-1">
         <div>
+  <!-- <img src="biere.svg" height="30px" class="biere"/> -->
           <span class="title-pmu">{{$i18n.t('pmuTitle')}}</span>
+              
           <span class="span-pmu">{{$i18n.t('pmuDescription')}}</span>
         </div>
       </v-card-title>
@@ -48,15 +50,12 @@ export default {
        border-top: 3px solid $main !important;
        border-bottom: 3px solid $main !important;
        font-size: 1.8rem;
-
      @media (max-width: 1264px) {
     font-size: 1.6rem;
   }
-   
-   
-     @media (max-width: 1044px) {
-    font-size: 1.2rem;
-  }
+  //    @media (max-width: 1044px) {
+  //   font-size: 1.2rem;
+  // }
 
   @media (max-width: 1024px) {
     font-size: 1.6rem;
@@ -79,6 +78,25 @@ export default {
        padding-bottom: 1%;
    }
 
+img.biere{
+z-index: 3;
+     @media (max-width: 1264px) {
+    height: 25px;
+  }
+  //    @media (max-width: 1044px) {
+  //   font-size: 20px;
+  // }
+
+  @media (max-width: 1024px) {
+     height: 25px;
+  }
+  @media (max-width: 860px) {
+     height: 20px;
+  }
+
+}
+
+
    .title-pmu {
        color:$main ;
        border-right: $main solid 3px !important;
@@ -87,6 +105,7 @@ export default {
    }
 
    .span-pmu {
+    //  font-size: 1.9rem;
        display: inline-block;
        white-space: nowrap;
        margin-left: 15px;

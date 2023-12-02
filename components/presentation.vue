@@ -9,7 +9,7 @@
         <span class="cp-text-2">{{  $i18n.t('tournoiNoelCashPrice') }}</span>
       </v-card-text>
       <div class="link-presentation">
-        <a href="https://prod.thomaslab.duckdns.org/" target="_blank" class="unlive-link">
+        <a href="tournoi.scalperchirurgical.com" target="_blank" class="unlive-link">
           <span class="cp-text-3">{{  $i18n.t('tournoiNoelLink') }}</span>
         </a>
       </div>
@@ -138,19 +138,19 @@ export default {
   align-items: center;
   flex-direction: column;
   font-weight: bold;
-  color: #39a43d !important;
+  color: $main !important;
   z-index: 10;
 
   @media (max-width: 725px) {
     font-weight: bold;
-    color: #39a43d !important;
+    color: $main !important;
   }
 }
 
 .cp-text-2 {
 display: flex;
 font-size: 1.4em;
- font-family: anton;
+ font-family: Kanit;
  animation: zoom 2s infinite alternate;  
 @keyframes zoom {
   0% {
@@ -172,7 +172,7 @@ font-size: 1.4em;
 }
 
 .title-pmu {
-  color: #39a43d !important;
+  color: $main !important;
   font-size: 1em;
   font-weight: bold;
   z-index: 10;
@@ -310,12 +310,9 @@ font-size: 1.4em;
   top: 0;
   left: 0;
   width: 50%;
-  /* Ajustez la largeur selon vos besoins */
   height: 100%;
   background-image: url('../static/beer.png');
-  /* Chemin de l'image pour l'arrière-plan à gauche */
   background-size: contain;
-  /* Ajustez selon le dimensionnement souhaité */
   background-position: left;
 }
 
@@ -333,6 +330,7 @@ font-size: 1.4em;
   // z-index: -1; /* Placez-le derrière le contenu principal */
   background-position: right;
   /* Aligner l'image à droite */
+  // margin-right: 2%;
 }
 
 </style>

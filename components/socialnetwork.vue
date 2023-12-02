@@ -2,7 +2,7 @@
   <div>
     <div class="social-main">
       <a v-for="(carte, index) in cartes" :key="index" :href="carte.lien" target="_blank" class="card-link">
-        <v-card class="card-social" :style="{ backgroundImage: `url(${carte.backgroundImage})` }" alt="Partner's logo">
+        <v-card class="card-social" :style="{ backgroundImage: `url(${carte.backgroundImage.src})` }" alt="Partner's logo">
           <div class="card-content">
             <v-card-actions class="cc-detail-title">{{  $i18n.t(`socialNetworkCard${index + 1}Title`) }}</v-card-actions>
             <v-card-text class="cc-detail-title-2">{{  $i18n.t(`socialNetworkCard${index + 1}Description`) }}</v-card-text>
@@ -25,21 +25,30 @@ export default {
           description: '',
           texteDuLien: '',
           lien: 'https://twitter.com/ScalperC',
-          backgroundImage: 'xxxx.png',
+          backgroundImage: {
+            src: 'xxxx.png',
+            alt: 'ogo twitter', // Ajoutez une description appropriée ici
+          },
         },
         {
           titre: this.$i18n.t('socialNetworkCard2Title'),
           description: this.$i18n.t('socialNetworkCard2Description'),
           texteDuLien: this.$i18n.t('socialNetworkCard2LinkText'),
           lien: 'https://www.bitget.com/expressly?channelCode=hete&vipCode=9k3f&languageType=0',
-          backgroundImage: 'bitget.png',
+          backgroundImage: {
+            src: 'bitget.png',
+            alt: 'logo bitget', // Ajoutez une description appropriée ici
+          },
         },
         {
           titre: this.$i18n.t('socialNetworkCard3Title'),
           description: this.$i18n.t('socialNetworkCard3Description'),
           texteDuLien: this.$i18n.t('socialNetworkCard3LinkText'),
-          lien: '',
-          backgroundImage: 'mexc.png',
+          lien: 'https://www.mexc.com/en-US/register?inviteCode=mexc-1XEGq',
+          backgroundImage: {
+            src: 'mexc.png',
+            alt: 'logo mexc', // Ajoutez une description appropriée ici
+          },
         },
       ],
     };

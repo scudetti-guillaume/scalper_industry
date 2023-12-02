@@ -86,7 +86,7 @@ export default {
    }
 
    .span-green-pmu {
-       color: #39a43d !important;
+       color: $main !important;
        display: inline-block;
        white-space: nowrap;
        margin-left: 15px;
